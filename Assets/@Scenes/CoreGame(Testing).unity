@@ -210,14 +210,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11427450, guid: 992df03a0499c3e4abaa82849ac5fd93, type: 2}
-      propertyPath: regenRate
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11427450, guid: 992df03a0499c3e4abaa82849ac5fd93, type: 2}
-      propertyPath: regenPoint
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 992df03a0499c3e4abaa82849ac5fd93, type: 2}
   m_IsPrefabParent: 0

@@ -12,10 +12,8 @@ public class RegenStamina : Stamina, IRegenable {
 	[SerializeField]
 	int regenPoint;
 
-	[SerializeField]
+
 	bool isRegenning;
-
-
 	float currentRegenDelay;
 	bool isInitRegen;
 

@@ -12,10 +12,8 @@ public class RegenHealth : Health, IRegenable {
 	[SerializeField]
 	int regenPoint;
 
-	[SerializeField]
+
 	bool isRegenning;
-
-
 	float currentRegenDelay;
 	bool isInitRegen;
 

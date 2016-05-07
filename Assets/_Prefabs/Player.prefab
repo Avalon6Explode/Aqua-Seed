@@ -94,12 +94,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f6e7d7a4822a14e96d52843797fa0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stamina: 0
+  stamina: 100
   maxStamina: 100
   regenRate: 0.1
   regenDelay: 2
   regenPoint: 2
-  isRegenning: 0
 --- !u!114 &11427450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,12 +110,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155318ac4a90bff4b8f07016c5cd9d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 100
   maxHealth: 100
   regenRate: 0.4
   regenDelay: 4
   regenPoint: 2
-  isRegenning: 0
 --- !u!114 &11429882
 MonoBehaviour:
   m_ObjectHideFlags: 1
