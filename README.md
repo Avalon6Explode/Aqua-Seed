@@ -18,10 +18,7 @@ The adventure game that participate the Adventure Jam 2016 #AdvJam2016 (Avalon T
 4) Viratcha Siripornpermsak ->
 (https://www.facebook.com/profile.php?id=100000395168762)
 
-5) ->
-(https://www.facebook.com/profile.php?id=100005225716968&fref=pb_friends)
-
-6) Chanatip Aramdilokrat
+5) Chanatip Aramdilokrat
 (https://www.facebook.com/Aramdilokrat2)
 
 #Official Jam Site
