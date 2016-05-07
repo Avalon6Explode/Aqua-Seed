@@ -6,16 +6,16 @@ The adventure game that participate the Adventure Jam 2016 #AdvJam2016 (Avalon T
 -
 
 #Team Member
-1) Chatchai Saratakij ->
+1) Chatchai Saratakij
 (https://www.facebook.com/chatchai.saratakij)
 
-2) Sahaphat Tong-on ->
+2) Sahaphat Tong-on
 (https://www.facebook.com/sahapat.tongon)
 
-3) Kolchawal Woraput ->
+3) Kolchawal Woraput
 (https://www.facebook.com/kol.wor)
 
-4) Viratcha Siripornpermsak ->
+4) Viratcha Siripornpermsak
 (https://www.facebook.com/profile.php?id=100000395168762)
 
 5) Chanatip Aramdilokrat
