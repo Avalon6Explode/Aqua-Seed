@@ -3,10 +3,10 @@
 public class Stamina : MonoBehaviour, IStatus<int> {
 
 	[SerializeField]
-	int stamina;
+	protected int stamina;
 
 	[SerializeField]
-	int maxStamina;
+	protected int maxStamina;
 
 
 	public int Current { get { return stamina; } }

@@ -3,10 +3,10 @@
 public class Health : MonoBehaviour, IStatus<int> {
 
 	[SerializeField]
-	int health;
+	protected int health;
 
 	[SerializeField]
-	int maxHealth;
+	protected int maxHealth;
 
 
 	public int Current { get { return health; } }
