@@ -12,7 +12,7 @@ The adventure game that participate the Adventure Jam 2016 #AdvJam2016 (Avalon T
 2) Sahaphat Tong-on ->
 (https://www.facebook.com/sahapat.tongon)
 
-3) ->
+3) Kolchawal Woraput ->
 (https://www.facebook.com/kol.wor)
 
 4) Viratcha Siripornpermsak ->
