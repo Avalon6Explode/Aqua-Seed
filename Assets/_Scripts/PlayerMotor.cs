@@ -12,18 +12,17 @@ public class PlayerMotor : MonoBehaviour {
 
 	Vector2 moveVector;
 	Rigidbody2D rigid;
+	
 	RegenHealth health;
-	RegenStamina stamina;
 
 
 	public PlayerMotor() {
-		moveSpeed = 7.0f;
+		moveSpeed = 2.0f;
 	}
 
 	void Awake() {
 		rigid = GetComponent<Rigidbody2D>();
 		health = GetComponent<RegenHealth>();
-		stamina = GetComponent<RegenStamina>();
 	}
 
 	void Update() {

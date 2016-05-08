@@ -19,6 +19,7 @@ GameObject:
   - 68: {fileID: 6888984}
   - 114: {fileID: 11482676}
   - 114: {fileID: 11482778}
+  - 114: {fileID: 11469932}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -61,7 +62,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130610}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 6a5017795f72c7b41b3b6208987a5601, type: 2}
   m_IsTrigger: 1
@@ -115,7 +116,7 @@ MonoBehaviour:
   stamina: 100
   maxStamina: 100
   regenRate: 0.1
-  regenDelay: 2
+  regenDelay: 1
   regenPoint: 2
 --- !u!114 &11427450
 MonoBehaviour:
@@ -156,6 +157,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7df84b9d78a439438e16f00daea63c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11469932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240a4fb7765737d40a9cb0b64e2ad2dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11482676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aef4592707a0734ab1c7b005c609414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownRate: 2
+  cooldownRate: 0.4
   staminaCost: 40
   dashSpeed: 20
 --- !u!212 &21245380

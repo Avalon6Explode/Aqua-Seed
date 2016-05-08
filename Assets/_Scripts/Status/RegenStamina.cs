@@ -26,7 +26,7 @@ public class RegenStamina : Stamina, IRegenable {
 
 	public RegenStamina() {
 		regenRate = 0.1f;
-		regenDelay = 2;
+		regenDelay = 1;
 		regenPoint = 2;
 		isRegenning = false;
 		currentRegenDelay = 0.0f;
