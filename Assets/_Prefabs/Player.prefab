@@ -16,6 +16,7 @@ GameObject:
   - 61: {fileID: 6189558}
   - 114: {fileID: 11427450}
   - 114: {fileID: 11408552}
+  - 68: {fileID: 6888984}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -58,14 +59,29 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130610}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 6a5017795f72c7b41b3b6208987a5601, type: 2}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.72, y: 0.97}
+--- !u!68 &6888984
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130610}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 6a5017795f72c7b41b3b6208987a5601, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 0.72, y: 0.97}
+  m_Offset: {x: 0, y: -0.32}
+  m_Points:
+  - {x: -0.36, y: 0}
+  - {x: 0.36, y: 0}
 --- !u!95 &9596250
 Animator:
   serializedVersion: 3
@@ -162,7 +178,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -716281349
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3d856164b99890d4da0774c72c88e906, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
