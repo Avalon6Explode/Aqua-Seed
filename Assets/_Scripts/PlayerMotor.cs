@@ -12,8 +12,8 @@ public class PlayerMotor : MonoBehaviour {
 
 	Vector2 moveVector;
 	Rigidbody2D rigid;
-	Health health;
-	Stamina stamina;
+	RegenHealth health;
+	RegenStamina stamina;
 
 
 	public PlayerMotor() {
@@ -22,8 +22,8 @@ public class PlayerMotor : MonoBehaviour {
 
 	void Awake() {
 		rigid = GetComponent<Rigidbody2D>();
-		health = GetComponent<Health>();
-		stamina = GetComponent<Stamina>();
+		health = GetComponent<RegenHealth>();
+		stamina = GetComponent<RegenStamina>();
 	}
 
 	void Update() {
@@ -35,6 +35,10 @@ public class PlayerMotor : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		rigid.velocity = (health.Current > 0) ? moveVector : Vector2.zero;
+		if (health.Current <= 0) {
+			rigid.velocity = Vector2.zero;
+		} else {
+			rigid.AddForce(moveVector, ForceMode2D.Impulse);
+		}
 	}
 }

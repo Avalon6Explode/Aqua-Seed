@@ -1,6 +1,4 @@
-﻿using System.Collections;
-
-public interface IRegenable {
+﻿public interface IRegenable {
 
 	float RegenRate { get; }
 	float RegenDelay { get; }

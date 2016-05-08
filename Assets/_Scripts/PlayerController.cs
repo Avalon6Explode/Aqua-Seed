@@ -6,13 +6,13 @@ public class PlayerController : MonoBehaviour {
 	float inputY;
 	SpriteRenderer spriteRenderer;
 	Animator anim;
-	Health health;
+	RegenHealth health;
 
 
 	void Awake() {
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		anim = GetComponent<Animator>();
-		health = GetComponent<Health>();
+		health = GetComponent<RegenHealth>();
 	}
 
 	void Update() {

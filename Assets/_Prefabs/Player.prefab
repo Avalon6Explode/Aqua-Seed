@@ -17,6 +17,8 @@ GameObject:
   - 114: {fileID: 11427450}
   - 114: {fileID: 11408552}
   - 68: {fileID: 6888984}
+  - 114: {fileID: 11482676}
+  - 114: {fileID: 11482778}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -45,7 +47,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 130610}
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 12
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_IsKinematic: 0
@@ -142,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6accc5243907ed4998988a1e0077096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 2
 --- !u!114 &11440212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -154,6 +156,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7df84b9d78a439438e16f00daea63c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11482676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e485916580c964ea592c5ad3060d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrySkill:
+  - {fileID: 11482778}
+--- !u!114 &11482778
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aef4592707a0734ab1c7b005c609414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownRate: 2
+  staminaCost: 40
+  dashSpeed: 20
 --- !u!212 &21245380
 SpriteRenderer:
   m_ObjectHideFlags: 1
