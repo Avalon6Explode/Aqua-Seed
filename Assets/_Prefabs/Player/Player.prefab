@@ -358,8 +358,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energy: 100
   maxEnergy: 100
-  regenRate: 0.4
-  regenDelay: 3
+  regenRate: 0.5
+  regenDelay: 5
   regenPoint: 2
 --- !u!114 &11429882
 MonoBehaviour:
@@ -428,7 +428,7 @@ MonoBehaviour:
   shootType: 1
   objBullet: {fileID: 144424, guid: 5261b95e98f9cfa4ab82f564a94b6d98, type: 2}
   initPoint: {fileID: 487178}
-  fireRate: 0.3
+  fireRate: 0.2
   energyCost: 4
 --- !u!114 &11491066
 MonoBehaviour:
