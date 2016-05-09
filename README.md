@@ -22,5 +22,8 @@ The adventure game that participate the Adventure Jam 2016 #AdvJam2016 (Avalon T
 5) Chanatip Aramdilokrat
 (https://www.facebook.com/Aramdilokrat2)
 
+6) Worawat Poojeevorn
+(https://www.facebook.com/profile.php?id=100005225716968&fref=ts)
+
 #Official Jam Site
 http://jams.gamejolt.io/adventurejam2016
