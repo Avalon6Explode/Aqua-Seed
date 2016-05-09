@@ -7,6 +7,7 @@ TagManager:
   - Gun
   - Bullet
   - Enemy
+  - Suit
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Player
   - Bullet
   - Enemy
-  - 
+  - BG
   - 
   - 
   - 

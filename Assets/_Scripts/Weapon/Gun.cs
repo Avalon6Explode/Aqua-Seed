@@ -7,6 +7,10 @@ public class Gun : Weapon {
 		AUTOMATIC
 	}
 
+	//debug only
+	[SerializeField]
+	GameObject player;
+
 	[SerializeField]
 	ShootType shootType;
 
@@ -52,7 +56,7 @@ public class Gun : Weapon {
 			objBulletPooling[i] = Instantiate(objBullet) as GameObject;
 			objBulletPooling[i].SetActive(false);
 		}
-		energy = GetComponent<RegenEnergy>();
+		energy = player.gameObject.GetComponent<RegenEnergy>();
 	}
 
 	void Update() {

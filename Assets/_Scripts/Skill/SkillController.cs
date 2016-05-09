@@ -10,7 +10,7 @@ public class SkillController : MonoBehaviour {
 	Skill[] arrySkill;
 
 
-	RegenStamina stamina;
+	RegenEnergy energy;
 
 
 	public SkillController() {
@@ -18,17 +18,17 @@ public class SkillController : MonoBehaviour {
 	}
 
 	void Awake() {
-		stamina = GetComponent<RegenStamina>();
+		energy = GetComponent<RegenEnergy>();
 	}
 
 	void Update() {
 		if (Input.GetButtonDown("Dash")) {
 			var selectedSkill = arrySkill[(int)Index.DASH];
 			
-			if (selectedSkill.IsReady && stamina.Current > selectedSkill.StaminaCost) {
+			if (selectedSkill.IsReady && energy.Current > selectedSkill.StaminaCost) {
 				arrySkill[(int)Index.DASH].Use();
-				stamina.ReInitRegen();
-				stamina.Remove(selectedSkill.StaminaCost);
+				energy.Remove(selectedSkill.StaminaCost);
+				energy.ReInitRegen();
 			}
 		}
 	}

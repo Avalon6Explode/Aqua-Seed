@@ -40,6 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: EmptyWeapon
+  attackPoint: 0
   weaponType: 0
   weaponClassify: 0
 --- !u!1001 &100100000

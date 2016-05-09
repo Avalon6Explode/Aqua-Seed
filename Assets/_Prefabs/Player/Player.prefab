@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 428996}
   - 114: {fileID: 11486386}
-  - 114: {fileID: 11427858}
   m_Layer: 0
   m_Name: TestGun(Auto)
   m_TagString: Gun
@@ -32,7 +31,7 @@ GameObject:
   - 114: {fileID: 11429882}
   - 61: {fileID: 6189558}
   - 114: {fileID: 11427450}
-  - 114: {fileID: 11408552}
+  - 114: {fileID: 11458688}
   - 114: {fileID: 11482676}
   - 114: {fileID: 11482778}
   - 114: {fileID: 11424928}
@@ -72,7 +71,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 448922}
   - 114: {fileID: 11491066}
-  - 114: {fileID: 11493404}
   m_Layer: 0
   m_Name: TestGun(Semi)
   m_TagString: Gun
@@ -287,7 +285,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130610}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 432c540cc9ce06f4d8d8da18275c0178, type: 2}
   m_CullingMode: 0
@@ -297,22 +295,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11408552
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 130610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13f6e7d7a4822a14e96d52843797fa0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stamina: 100
-  maxStamina: 100
-  regenRate: 0.1
-  regenDelay: 1
-  regenPoint: 2
 --- !u!114 &11424928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -345,22 +327,6 @@ MonoBehaviour:
   regenRate: 0.4
   regenDelay: 4
   regenPoint: 2
---- !u!114 &11427858
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b48b4912281ef3409c0ede5585a74ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  energy: 100
-  maxEnergy: 100
-  regenRate: 0.4
-  regenDelay: 4
-  regenPoint: 3
 --- !u!114 &11429882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -384,6 +350,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7df84b9d78a439438e16f00daea63c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11458688
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b48b4912281ef3409c0ede5585a74ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energy: 100
+  maxEnergy: 100
+  regenRate: 0.1
+  regenDelay: 1
+  regenPoint: 2
 --- !u!114 &11482676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -409,7 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownRate: 0.8
-  staminaCost: 30
+  staminaCost: 10
   dashSpeed: 20
 --- !u!114 &11486386
 MonoBehaviour:
@@ -425,11 +407,12 @@ MonoBehaviour:
   itemName: Gun
   attackPoint: 38
   weaponType: 1
-  weaponClassify: 0
+  weaponClassify: 1
+  player: {fileID: 130610}
   shootType: 1
   objBullet: {fileID: 144424, guid: 5261b95e98f9cfa4ab82f564a94b6d98, type: 2}
   initPoint: {fileID: 487178}
-  fireRate: 0.2
+  fireRate: 0.1
   energyCost: 4
 --- !u!114 &11491066
 MonoBehaviour:
@@ -445,28 +428,13 @@ MonoBehaviour:
   itemName: Gun
   attackPoint: 25
   weaponType: 1
-  weaponClassify: 1
+  weaponClassify: 2
+  player: {fileID: 130610}
   shootType: 0
   objBullet: {fileID: 144424, guid: 5261b95e98f9cfa4ab82f564a94b6d98, type: 2}
   initPoint: {fileID: 491332}
-  fireRate: 0.3
-  energyCost: 3
---- !u!114 &11493404
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 137828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b48b4912281ef3409c0ede5585a74ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  energy: 100
-  maxEnergy: 100
-  regenRate: 0.2
-  regenDelay: 2
-  regenPoint: 2
+  fireRate: 0.2
+  energyCost: 1
 --- !u!124 &12469514
 Behaviour:
   m_ObjectHideFlags: 1
@@ -500,7 +468,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -716281349
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3d856164b99890d4da0774c72c88e906, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 04bf52081a1438040964a776dd252ba7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
