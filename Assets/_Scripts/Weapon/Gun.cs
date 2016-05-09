@@ -2,6 +2,14 @@
 
 public class Gun : Weapon {
 
+	enum ShootType {
+		SEMI,
+		AUTOMATIC
+	}
+
+	[SerializeField]
+	ShootType shootType;
+
 	[SerializeField]
 	GameObject objBullet;
 
@@ -14,9 +22,9 @@ public class Gun : Weapon {
 	[SerializeField]
 	int energyCost;
 
-	
 	int maxObjectPooling;
 	float nextFire;
+	bool isPressShoot;
 
 	GameObject[] objBulletPooling;
 	RegenEnergy energy;
@@ -33,6 +41,7 @@ public class Gun : Weapon {
 		maxObjectPooling = 20;
 		objBulletPooling = new GameObject[maxObjectPooling];
 		nextFire = 0.0f;
+		shootType = ShootType.SEMI;
 	}
 
 	void Awake() {
@@ -48,7 +57,9 @@ public class Gun : Weapon {
 		target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		target -= new Vector2(initPoint.position.x, initPoint.position.y);
 
-		if (IsUseAble && Input.GetButtonDown("Fire1") && Time.time > nextFire) {
+		isPressShoot = (shootType == ShootType.SEMI) ? Input.GetButtonDown("Fire1") : Input.GetButton("Fire1");
+
+		if (IsUseAble && isPressShoot && Time.time > nextFire) {
 			nextFire = Time.time + fireRate;
 			Use();
 			PoolingControl();
