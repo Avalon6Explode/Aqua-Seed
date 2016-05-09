@@ -430,6 +430,7 @@ MonoBehaviour:
   initPoint: {fileID: 487178}
   fireRate: 0.2
   energyCost: 4
+  attackPoint: 40
 --- !u!114 &11491066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -449,6 +450,7 @@ MonoBehaviour:
   initPoint: {fileID: 491332}
   fireRate: 0.4
   energyCost: 2
+  attackPoint: 30
 --- !u!114 &11493404
 MonoBehaviour:
   m_ObjectHideFlags: 1

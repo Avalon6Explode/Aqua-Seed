@@ -22,6 +22,10 @@ public class Gun : Weapon {
 	[SerializeField]
 	int energyCost;
 
+	[SerializeField]
+	int attackPoint;
+
+	
 	int maxObjectPooling;
 	float nextFire;
 	bool isPressShoot;
@@ -31,8 +35,10 @@ public class Gun : Weapon {
 	
 	Vector2 target;
 
+
 	public bool IsUseAble { get { return energy.Current >= energyCost; } }
 	public int EnergyCost { get { return energyCost; } }
+	public int AttackPoint { get { return attackPoint; } }
 
 
 	public Gun() : base() {
