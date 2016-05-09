@@ -24,7 +24,7 @@ public class Dash : Skill {
 
 	public Dash() : base() {
 		cooldownRate = 0.8f;
-		staminaCost = 30;
+		staminaCost = 10;
 		dashSpeed = 20.0f;
 		nextDash = 0.0f;
 		isInitDash = false;
