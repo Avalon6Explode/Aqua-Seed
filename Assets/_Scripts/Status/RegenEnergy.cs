@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class RegenStamina : Stamina, IRegenable {
+public class RegenEnergy : Energy, IRegenable {
 
 	[SerializeField]
 	float regenRate;
@@ -24,10 +23,10 @@ public class RegenStamina : Stamina, IRegenable {
 	public bool IsRegenning { get { return isRegenning; } }
 
 
-	public RegenStamina() : base() {
-		regenRate = 0.1f;
-		regenDelay = 1;
-		regenPoint = 2;
+	public RegenEnergy() : base() {
+		regenRate = 0.0f;
+		regenDelay = 0;
+		regenPoint = 0;
 		isRegenning = false;
 		currentRegenDelay = 0.0f;
 		isInitRegen = false;
@@ -35,18 +34,19 @@ public class RegenStamina : Stamina, IRegenable {
 
 	void FixedUpdate() {
 		if (!isInitRegen) {
-			if (stamina < maxStamina) {
-				currentRegenDelay = Time.fixedTime + regenDelay;
-				isInitRegen = true;
-			}
-		} else {
-			if (stamina < maxStamina) {
+		 	if (energy < maxEnergy) {
+		 		currentRegenDelay = Time.fixedTime + regenDelay;
+		 		isInitRegen = true;
+		 	}
+		}
+		else {
+			if (energy < maxEnergy) {
 				if (Time.fixedTime > currentRegenDelay) {
 					isRegenning = true;
 					Regen();
 					currentRegenDelay = Time.fixedTime + regenRate;
-				}
-			} 
+				}	
+			}
 			else {
 				isRegenning = false;
 				isInitRegen = false;

@@ -24,7 +24,7 @@ public class RegenHealth : Health, IRegenable {
 	public bool IsRegenning { get { return isRegenning; } }
 
 
-	public RegenHealth() {
+	public RegenHealth() : base() {
 		regenRate = 0.4f;
 		regenDelay = 4;
 		regenPoint = 2;

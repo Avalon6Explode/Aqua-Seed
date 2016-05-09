@@ -16,14 +16,46 @@ GameObject:
   - 61: {fileID: 6189558}
   - 114: {fileID: 11427450}
   - 114: {fileID: 11408552}
-  - 68: {fileID: 6888984}
   - 114: {fileID: 11482676}
   - 114: {fileID: 11482778}
-  - 114: {fileID: 11469932}
+  - 114: {fileID: 11424928}
+  - 61: {fileID: 6118478}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &154346
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 467906}
+  m_Layer: 0
+  m_Name: InitPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 1638116407661442457, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &188264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 448390}
+  - 114: {fileID: 11416582}
+  - 114: {fileID: 11426502}
+  m_Layer: 0
+  m_Name: TestGun
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -36,8 +68,34 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 448390}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &448390
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188264}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 467906}
+  m_Father: {fileID: 444142}
+  m_RootOrder: 0
+--- !u!4 &467906
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154346}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 448390}
   m_RootOrder: 0
 --- !u!50 &5089290
 Rigidbody2D:
@@ -54,8 +112,22 @@ Rigidbody2D:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!61 &6118478
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130610}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 6a5017795f72c7b41b3b6208987a5601, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.30475515}
+  serializedVersion: 2
+  m_Size: {x: 0.72, y: 0.02389419}
 --- !u!61 &6189558
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -67,24 +139,9 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: 6a5017795f72c7b41b3b6208987a5601, type: 2}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0038434565, y: -0.07686931}
   serializedVersion: 2
-  m_Size: {x: 0.72, y: 0.97}
---- !u!68 &6888984
-EdgeCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 130610}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 6a5017795f72c7b41b3b6208987a5601, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -0.32}
-  m_Points:
-  - {x: -0.36, y: 0}
-  - {x: 0.36, y: 0}
+  m_Size: {x: 0.43558353, y: 0.8162614}
 --- !u!95 &9596250
 Animator:
   serializedVersion: 3
@@ -118,6 +175,56 @@ MonoBehaviour:
   regenRate: 0.1
   regenDelay: 1
   regenPoint: 2
+--- !u!114 &11416582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3061634bb20c33848bd3d22f8c43e999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Gun
+  weaponType: 1
+  weaponClassify: 0
+  objBullet: {fileID: 144424, guid: 5261b95e98f9cfa4ab82f564a94b6d98, type: 2}
+  initPoint: {fileID: 467906}
+  fireRate: 0.1
+  energyCost: 2
+--- !u!114 &11424928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49ac1ddc404ef34b8dd3e8d8d760e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objEmptyWeapon: {fileID: 0}
+  objWeapon:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &11426502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b48b4912281ef3409c0ede5585a74ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energy: 100
+  maxEnergy: 100
+  regenRate: 0.2
+  regenDelay: 2
+  regenPoint: 1
 --- !u!114 &11427450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -157,17 +264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7df84b9d78a439438e16f00daea63c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11469932
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 130610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 240a4fb7765737d40a9cb0b64e2ad2dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11482676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -192,8 +288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aef4592707a0734ab1c7b005c609414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownRate: 0.4
-  staminaCost: 40
+  cooldownRate: 0.8
+  staminaCost: 30
   dashSpeed: 20
 --- !u!212 &21245380
 SpriteRenderer:
