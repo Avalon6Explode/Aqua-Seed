@@ -15,7 +15,26 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
+--- !u!1 &126306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 492776}
+  - 20: {fileID: 2036278}
+  - 92: {fileID: 9206058}
+  - 124: {fileID: 12499824}
+  - 81: {fileID: 8164990}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &130610
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +77,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &164900
 GameObject:
   m_ObjectHideFlags: 1
@@ -101,7 +120,7 @@ Transform:
   m_Children:
   - {fileID: 487178}
   m_Father: {fileID: 444142}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &444142
 Transform:
   m_ObjectHideFlags: 1
@@ -112,6 +131,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 492776}
   - {fileID: 448922}
   - {fileID: 428996}
   m_Father: {fileID: 0}
@@ -128,7 +148,7 @@ Transform:
   m_Children:
   - {fileID: 491332}
   m_Father: {fileID: 444142}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &487178
 Transform:
   m_ObjectHideFlags: 1
@@ -153,6 +173,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 448922}
   m_RootOrder: 0
+--- !u!4 &492776
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126306}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 444142}
+  m_RootOrder: 0
+--- !u!20 &2036278
+Camera:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126306}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
 --- !u!50 &5089290
 Rigidbody2D:
   serializedVersion: 2
@@ -198,6 +264,20 @@ BoxCollider2D:
   m_Offset: {x: -0.0038434565, y: -0.07686931}
   serializedVersion: 2
   m_Size: {x: 0.43558353, y: 0.8162614}
+--- !u!81 &8164990
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126306}
+  m_Enabled: 1
+--- !u!92 &9206058
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126306}
+  m_Enabled: 1
 --- !u!95 &9596250
 Animator:
   serializedVersion: 3
@@ -333,7 +413,7 @@ MonoBehaviour:
   objBullet: {fileID: 144424, guid: 5261b95e98f9cfa4ab82f564a94b6d98, type: 2}
   initPoint: {fileID: 487178}
   fireRate: 0.1
-  energyCost: 4
+  energyCost: 5
 --- !u!114 &11491066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -354,7 +434,14 @@ MonoBehaviour:
   objBullet: {fileID: 144424, guid: 5261b95e98f9cfa4ab82f564a94b6d98, type: 2}
   initPoint: {fileID: 491332}
   fireRate: 0.2
-  energyCost: 1
+  energyCost: 3
+--- !u!124 &12499824
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126306}
+  m_Enabled: 1
 --- !u!212 &21245380
 SpriteRenderer:
   m_ObjectHideFlags: 1
