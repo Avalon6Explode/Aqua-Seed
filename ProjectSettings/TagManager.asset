@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Gun
   - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - 
   - Player
   - Bullet
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -43,7 +44,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
+  - name: Humaniod
     uniqueID: 3578685947
     locked: 0
   - name: Item

@@ -22,9 +22,6 @@ public class Gun : Weapon {
 	[SerializeField]
 	int energyCost;
 
-	[SerializeField]
-	int attackPoint;
-
 
 	int maxObjectPooling;
 	float nextFire;
@@ -38,12 +35,12 @@ public class Gun : Weapon {
 
 	public bool IsUseAble { get { return energy.Current >= energyCost; } }
 	public int EnergyCost { get { return energyCost; } }
-	public int AttackPoint { get { return attackPoint; } }
 
 
 	public Gun() : base() {
 		itemName = "Gun";
 		weaponType = Weapon.WeaponType.GUN;
+		weaponClassify = Weapon.WeaponClassify.PRIMARY;
 		maxObjectPooling = 30;
 		objBulletPooling = new GameObject[maxObjectPooling];
 		nextFire = 0.0f;
@@ -88,6 +85,7 @@ public class Gun : Weapon {
 
 				objBulletPooling[i].gameObject.GetComponent<Bullet>().SetOrigin(initPoint.position);
 				objBulletPooling[i].gameObject.GetComponent<Bullet>().SetDirection(target);
+				objBulletPooling[i].gameObject.GetComponent<Bullet>().SetAttackPoint(attackPoint);
 				objBulletPooling[i].SetActive(true);
 				
 				break;

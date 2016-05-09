@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Bullet : MonoBehaviour {
+public class Bullet : Weapon {
 
 	[SerializeField]
 	float moveSpeed;
@@ -19,13 +19,17 @@ public class Bullet : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		rigid.AddForce(direction * moveSpeed, ForceMode2D.Force);
+		Use();
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.gameObject.tag != "Player") {
 			gameObject.SetActive(false);
 		}
+	}
+
+	public override void Use() {
+		rigid.AddForce(direction * moveSpeed, ForceMode2D.Force);
 	}
 
 	public void SetOrigin(Vector2 originPos) {

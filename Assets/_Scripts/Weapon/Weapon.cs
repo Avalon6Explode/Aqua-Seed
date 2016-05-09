@@ -10,12 +10,16 @@ public abstract class Weapon : Item {
 	}
 
 	public enum WeaponClassify {
+		NONE,
 		PRIMARY,
 		SECONDARY,
 		TERTIARY
 	}
 
 	
+	[SerializeField]
+	protected int attackPoint;
+
 	[SerializeField]
 	protected WeaponType weaponType;
 
@@ -25,11 +29,16 @@ public abstract class Weapon : Item {
 
 	public WeaponType Type { get { return weaponType; } }
 	public WeaponClassify Classify { get { return weaponClassify; } }
+	public int AttackPoint { get { return attackPoint; } }
 
 
 	public Weapon() {
 		itemName = "Weapon";
 		weaponType = WeaponType.NONE;
-		weaponClassify = Weapon.WeaponClassify.PRIMARY;
+		weaponClassify = Weapon.WeaponClassify.NONE;
+	}
+
+	public void SetAttackPoint(int point) {
+		attackPoint = point;
 	}
 }
