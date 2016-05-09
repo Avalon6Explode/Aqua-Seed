@@ -25,7 +25,7 @@ public class Gun : Weapon {
 	[SerializeField]
 	int attackPoint;
 
-	
+
 	int maxObjectPooling;
 	float nextFire;
 	bool isPressShoot;
@@ -44,7 +44,7 @@ public class Gun : Weapon {
 	public Gun() : base() {
 		itemName = "Gun";
 		weaponType = Weapon.WeaponType.GUN;
-		maxObjectPooling = 20;
+		maxObjectPooling = 30;
 		objBulletPooling = new GameObject[maxObjectPooling];
 		nextFire = 0.0f;
 		shootType = ShootType.SEMI;
