@@ -46,15 +46,17 @@ GameObject:
   - 212: {fileID: 21245380}
   - 95: {fileID: 9596250}
   - 50: {fileID: 5089290}
+  - 61: {fileID: 6189558}
+  - 61: {fileID: 6118478}
   - 114: {fileID: 11440212}
   - 114: {fileID: 11429882}
-  - 61: {fileID: 6189558}
   - 114: {fileID: 11427450}
   - 114: {fileID: 11458688}
   - 114: {fileID: 11482676}
   - 114: {fileID: 11482778}
+  - 114: {fileID: 11418636}
+  - 114: {fileID: 11402938}
   - 114: {fileID: 11424928}
-  - 61: {fileID: 6118478}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -258,7 +260,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 130610}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 6a5017795f72c7b41b3b6208987a5601, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: -0.0038434565, y: -0.07686931}
@@ -295,6 +297,42 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11402938
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58814950a49d3c40b738d8d8aa3dd68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponInventory: {fileID: 11424928}
+--- !u!114 &11418636
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49ac1ddc404ef34b8dd3e8d8d760e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objEmptyItem: {fileID: 176388, guid: 04a971480dde1bf468a1f8b7e0454755, type: 2}
+  objItem:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  maxItem: 10
 --- !u!114 &11424928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -306,11 +344,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49ac1ddc404ef34b8dd3e8d8d760e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objEmptyWeapon: {fileID: 0}
-  objWeapon:
+  objEmptyItem: {fileID: 176388, guid: 04a971480dde1bf468a1f8b7e0454755, type: 2}
+  objItem:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  maxItem: 3
 --- !u!114 &11427450
 MonoBehaviour:
   m_ObjectHideFlags: 1
