@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &126306
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,7 +77,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &164900
 GameObject:
   m_ObjectHideFlags: 1
@@ -363,8 +363,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energy: 100
   maxEnergy: 100
-  regenRate: 0.1
-  regenDelay: 1
+  regenRate: 0.3
+  regenDelay: 2
   regenPoint: 2
 --- !u!114 &11482676
 MonoBehaviour:
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Gun
-  attackPoint: 38
+  attackPoint: 28
   weaponType: 1
   weaponClassify: 1
   player: {fileID: 130610}
