@@ -218,7 +218,7 @@ public class PlayerController : MonoBehaviour {
 				var obj = weaponInventory.GetItem(i);
 						
 				if (obj.gameObject.tag == "Weapon") {
-						mostPowerfulWeaponIndex = i;
+					mostPowerfulWeaponIndex = i;
 				}
 			}
 			HoldWeapon(mostPowerfulWeaponIndex);
