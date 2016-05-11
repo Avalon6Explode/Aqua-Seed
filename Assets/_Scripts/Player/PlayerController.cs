@@ -210,18 +210,18 @@ public class PlayerController : MonoBehaviour {
 
 	public void HoldMostPowerfulWeapon() {
 		if (!weaponInventory.IsEmpty) {
-						
-			var maxPowerWeaponSlotIndex = 0;
+
+			var mostPowerfulWeaponIndex = 0;
 
 			for (int i = 0; i < weaponInventory.Length; i++) {
 
 				var obj = weaponInventory.GetItem(i);
 						
 				if (obj.gameObject.tag == "Weapon") {
-						maxPowerWeaponSlotIndex = i;
+						mostPowerfulWeaponIndex = i;
 				}
 			}
-			HoldWeapon(maxPowerWeaponSlotIndex);
+			HoldWeapon(mostPowerfulWeaponIndex);
 		}
 	}
 
