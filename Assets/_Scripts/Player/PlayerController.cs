@@ -47,22 +47,33 @@ public class PlayerController : MonoBehaviour {
 		inputMouseVector = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		inputMouseVector -= new Vector2(transform.position.x, transform.position.y); 
 
+
 		for (int i = 0; i < weaponInventory.Length; i++) {
 			weaponInventory.GetItem(i).gameObject.transform.position = weaponTransform.position; 
 		}
 
+
 		if (itemInventory.IsItemExit("Suit") && currentHoldingItem.gameObject.tag == "Weapon") {
 			currentHoldingItem.GetComponent<Weapon>().SetAttackAble(true);
+		} 
+		else {
+			for (int i = 0; i < weaponInventory.Length; i++) {
+				if (weaponInventory.GetItem(i).gameObject.tag == "Weapon") {
+					weaponInventory.GetItem(i).GetComponent<Weapon>().SetAttackAble(false);
+				}
+			}
 		}
+
 
 		if (health.Current > 0) {
 		
 			anim.SetFloat("InputX", inputX);
 			anim.SetFloat("InputY", inputY);
+			anim.SetFloat("SuitState", (itemInventory.IsItemExit("Suit")) ? 1.0f : 0.0f);
 			anim.SetBool("IsWalking", inputX != 0.0f || inputY != 0.0f);
-			anim.SetBool("IsSuitUp", itemInventory.IsItemExit("Suit"));
 
 			spriteRenderer.flipX = (inputMouseVector.x > 0.0f) ? false : (inputMouseVector.x < 0.0f) ? true : spriteRenderer.flipX;
+
 
 			if (Input.GetKeyDown(KeyCode.Alpha1)) {
 				if (!weaponInventory.IsSlotEmpty(0)) {
@@ -169,6 +180,7 @@ public class PlayerController : MonoBehaviour {
 		if (!weaponInventory.GetItem(index).Equals(objEmptyItem)) {
 			var obj = weaponInventory.GetItem(index);
 			SetEnableCollider2D(obj, true);
+			obj.GetComponent<Transform>().position -= Vector3.up * 0.4f; 
 			obj.GetComponent<Weapon>().SetAttackAble(false);
 			obj.gameObject.SetActive(true);
 			weaponInventory.Remove(index);
