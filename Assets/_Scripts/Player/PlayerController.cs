@@ -53,13 +53,32 @@ public class PlayerController : MonoBehaviour {
 		}
 
 
-		if (itemInventory.IsItemExit("Suit") && currentHoldingItem.gameObject.tag == "Weapon") {
-			currentHoldingItem.GetComponent<Weapon>().SetAttackAble(true);
-		} 
-		else {
-			for (int i = 0; i < weaponInventory.Length; i++) {
-				if (weaponInventory.GetItem(i).gameObject.tag == "Weapon") {
-					weaponInventory.GetItem(i).GetComponent<Weapon>().SetAttackAble(false);
+		if (itemInventory.IsItemExit("Suit")) {
+			if (!weaponInventory.IsEmpty) {
+				for (int i = 0; i < weaponInventory.Length; i++) {
+
+					var obj = weaponInventory.GetItem(i);
+
+					if (obj.gameObject.tag == "Weapon") {
+						obj.GetComponent<Weapon>().SetAttackAble(true);
+					} 
+					else {
+						continue;
+					}
+				}
+			}
+		} else {
+			if (!weaponInventory.IsEmpty) {
+				for (int i = 0; i < weaponInventory.Length; i++) {
+
+					var obj = weaponInventory.GetItem(i);
+
+					if (obj.gameObject.tag == "Weapon") {
+						obj.GetComponent<Weapon>().SetAttackAble(false);
+					}
+					else {
+						continue;
+					}
 				}
 			}
 		}
