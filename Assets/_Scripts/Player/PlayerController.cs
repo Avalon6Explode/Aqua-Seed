@@ -109,8 +109,9 @@ public class PlayerController : MonoBehaviour {
 					HoldWeapon(2);
 				}
 			}
-			else if (Input.GetKey(KeyCode.G)) {
+			else if (Input.GetKeyDown(KeyCode.G)) {
 				DropWeapon(currentHoldingItemIndex);
+				HoldMostPowerfulWeapon();
 			}
 		}
 	}
@@ -207,6 +208,23 @@ public class PlayerController : MonoBehaviour {
 		currentHoldingItem = objEmptyItem;
 	}
 
+	public void HoldMostPowerfulWeapon() {
+		if (!weaponInventory.IsEmpty) {
+						
+			var maxPowerWeaponSlotIndex = 0;
+
+			for (int i = 0; i < weaponInventory.Length; i++) {
+
+				var obj = weaponInventory.GetItem(i);
+						
+				if (obj.gameObject.tag == "Weapon") {
+						maxPowerWeaponSlotIndex = i;
+				}
+			}
+			HoldWeapon(maxPowerWeaponSlotIndex);
+		}
+	}
+
 	public void HoldWeapon(int index) {
 		
 		var oldOne = currentHoldingItem;
@@ -218,20 +236,6 @@ public class PlayerController : MonoBehaviour {
 		currentHoldingItem = newOne;
 
 		newOne.SetActive(true);
-
-		if (itemInventory.IsItemExit("Suit")) {
-			
-			var oldOneWeapon = GetComponent<Weapon>();
-			var newOneWeapon = GetComponent<Weapon>();
-
-			if (oldOneWeapon) {
-				oldOneWeapon.SetAttackAble(false);
-			}
-
-			if (newOneWeapon) {
-				newOneWeapon.SetAttackAble(true);
-			}
-		}
 	}
 
 	public void HoldItem(int index) {
