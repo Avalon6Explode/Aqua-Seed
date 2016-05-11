@@ -26,7 +26,7 @@ public abstract class Weapon : Item {
 	[SerializeField]
 	protected WeaponClassify weaponClassify;
 
-	[SerializeField]
+
 	protected bool isAttackAble;
 
 
