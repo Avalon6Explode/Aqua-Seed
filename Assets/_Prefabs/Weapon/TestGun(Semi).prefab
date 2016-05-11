@@ -84,10 +84,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Gun
-  attackPoint: 25
+  attackPoint: 10
   weaponType: 1
   weaponClassify: 2
-  isAttackAble: 0
   player: {fileID: 0}
   shootType: 0
   objBullet: {fileID: 144424, guid: 5261b95e98f9cfa4ab82f564a94b6d98, type: 2}

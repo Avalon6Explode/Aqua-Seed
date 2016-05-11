@@ -308,7 +308,7 @@ MonoBehaviour:
   energy: 100
   maxEnergy: 100
   regenRate: 0.3
-  regenDelay: 2
+  regenDelay: 1
   regenPoint: 2
 --- !u!114 &11482676
 MonoBehaviour:
@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownRate: 0.8
-  energyCost: 10
+  energyCost: 8
   itemRequirementName: Suit
   dashSpeed: 20
 --- !u!124 &12499824

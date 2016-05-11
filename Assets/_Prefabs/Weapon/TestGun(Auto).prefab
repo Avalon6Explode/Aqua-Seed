@@ -84,16 +84,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Gun
-  attackPoint: 28
+  attackPoint: 12
   weaponType: 1
   weaponClassify: 1
-  isAttackAble: 0
   player: {fileID: 0}
   shootType: 1
   objBullet: {fileID: 144424, guid: 5261b95e98f9cfa4ab82f564a94b6d98, type: 2}
   initPoint: {fileID: 474498}
-  fireRate: 0.1
-  energyCost: 5
+  fireRate: 0.15
+  energyCost: 4
 --- !u!212 &21272996
 SpriteRenderer:
   m_ObjectHideFlags: 1
