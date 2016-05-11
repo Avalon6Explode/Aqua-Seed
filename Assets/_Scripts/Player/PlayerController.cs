@@ -29,6 +29,13 @@ public class PlayerController : MonoBehaviour {
 	int currentHoldingItemIndex;
 
 
+	public GameObject CurrentHoldingItem { get { return currentHoldingItem; } }
+	public int CurrentHoldingItemIndex { get { return currentHoldingItemIndex; } }
+
+	public Inventory ItemInventory { get { return itemInventory; } }
+	public Inventory WeaponInventory { get { return weaponInventory; } }
+
+
 	public PlayerController() {
 		currentHoldingItemIndex = 0;
 	}
