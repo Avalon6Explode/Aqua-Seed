@@ -14,7 +14,10 @@ public abstract class Skill : MonoBehaviour {
 
 	[SerializeField]
 	[Range(0, 100)]
-	protected int staminaCost;
+	protected int energyCost;
+
+	[SerializeField]
+	protected string itemRequirementName;
 
 
 	protected State state;
@@ -25,11 +28,12 @@ public abstract class Skill : MonoBehaviour {
 	public bool IsCoolDown { get { return state == State.COOLDOWN; } }
 
 	public float CooldownRate { get { return cooldownRate; } }
-	public int StaminaCost { get { return staminaCost; } }
+	public int EnergyCost { get { return energyCost; } }
+	public string ItemRequirementName { get { return itemRequirementName; } }
 
 
 	public Skill() {
-		staminaCost = 0;
+		energyCost = 0;
 		cooldownRate = 0.4f;
 		state = State.READY;
 	}

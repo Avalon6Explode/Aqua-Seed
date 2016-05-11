@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class SkillController : MonoBehaviour {
 
@@ -7,7 +8,13 @@ public class SkillController : MonoBehaviour {
 	}
 
 	[SerializeField]
+	Inventory itemInventory;
+
+	[SerializeField]
 	Skill[] arrySkill;
+
+	[SerializeField]
+	Canvas playerUI;
 
 
 	RegenEnergy energy;
@@ -22,14 +29,23 @@ public class SkillController : MonoBehaviour {
 	}
 
 	void Update() {
-		if (Input.GetButtonDown("Dash")) {
-			var selectedSkill = arrySkill[(int)Index.DASH];
-			
-			if (selectedSkill.IsReady && energy.Current > selectedSkill.StaminaCost) {
-				arrySkill[(int)Index.DASH].Use();
-				energy.Remove(selectedSkill.StaminaCost);
-				energy.ReInitRegen();
+		if (itemInventory.IsItemExit("Suit")) {
+
+			playerUI.enabled = true;
+
+			if (Input.GetButtonDown("Dash")) {
+
+				var selectedSkill = arrySkill[(int)Index.DASH];
+
+				if (selectedSkill.IsReady && energy.Current > selectedSkill.EnergyCost) {
+					selectedSkill.Use();
+					energy.Remove(selectedSkill.EnergyCost);
+					energy.ReInitRegen();
+				}
 			}
+		}
+		else {
+			playerUI.enabled = false;
 		}
 	}
 }

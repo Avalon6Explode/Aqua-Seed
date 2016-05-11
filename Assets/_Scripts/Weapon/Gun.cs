@@ -31,14 +31,14 @@ public class Gun : Weapon {
 	float nextFire;
 	bool isPressShoot;
 
+
 	GameObject[] objBulletPooling;
 	RegenEnergy energy;
 	
 	Vector2 target;
 
-
-	public bool IsUseAble { get { return energy.Current >= energyCost; } }
 	public int EnergyCost { get { return energyCost; } }
+	public bool IsUseAble { get { return energy.Current >= energyCost; } }
 
 
 	public Gun() : base() {
@@ -66,10 +66,12 @@ public class Gun : Weapon {
 
 		isPressShoot = (shootType == ShootType.SEMI) ? Input.GetButtonDown("Fire1") : Input.GetButton("Fire1");
 
-		if (IsUseAble && isPressShoot && Time.time > nextFire) {
-			nextFire = Time.time + fireRate;
-			Use();
-			PoolingControl();
+		if (isAttackAble) {
+			if (IsUseAble && isPressShoot && Time.time > nextFire) {
+				nextFire = Time.time + fireRate;
+				Use();
+				PoolingControl();
+			}
 		}
 	}
 
