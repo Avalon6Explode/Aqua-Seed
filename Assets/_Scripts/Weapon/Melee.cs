@@ -3,37 +3,45 @@
 public class Melee : Weapon {
 
 	[SerializeField]
-	int energyCost;
+	int staminaCost;
 
 
-	RegenEnergy energy;
 	RegenStamina stamina;
+	bool isPressSlash;
 
 
-	public int EnergyCost { get { return energyCost; } }
-	public bool IsUseAble { get { return energy.Current >= energyCost; } }
+	public int StaminaCost { get { return staminaCost; } }
+	public bool IsUseAble { get { return stamina.Current >= staminaCost; } }
 
 
 	public Melee() : base() {
 		itemName = "Melee";
 		weaponType = WeaponType.MELEE;
 		weaponClassify = WeaponClassify.TERTIARY;
-		energy = null;
+		stamina = null;
+		isPressSlash = false;
 	}
 
 	void Update() {
-		if (energy != null) {
 
-			} else {
-				var player = GameObject.FindGameObjectWithTag("SceneManager").gameObject.GetComponent<SceneManager>().Player;
-				
-				if (player) {
-					energy = player.gameObject.GetComponent<RegenEnergy>();
-				}
+		isPressSlash = Input.GetButtonDown("Fire1");
+
+		if (stamina != null) {
+			if (isAttackAble && IsUseAble && isPressSlash) {
+				Use();
 			}
+		}
+		else {
+			var player = GameObject.FindGameObjectWithTag("SceneManager").gameObject.GetComponent<SceneManager>().Player;
+			
+			if (player) {
+				stamina = player.GetComponent<RegenStamina>();
+			}
+		}
 	}
 
 	public override void Use() {
-		return;
+		stamina.Remove(staminaCost);
+		stamina.ReInitRegen();
 	}
 }

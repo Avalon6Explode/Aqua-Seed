@@ -56,10 +56,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Melee
-  attackPoint: 30
+  attackPoint: 14
   weaponType: 2
   weaponClassify: 3
-  energyCost: 20
+  staminaCost: 10
 --- !u!212 &21200118
 SpriteRenderer:
   m_ObjectHideFlags: 1

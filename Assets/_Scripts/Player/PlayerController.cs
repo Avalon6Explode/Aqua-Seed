@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour {
 
 	GameObject currentHoldingItem;
 	int currentHoldingItemIndex;
+	int prevHoldingItemIndex;
 
 
 	public GameObject CurrentHoldingItem { get { return currentHoldingItem; } }
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour {
 
 	public PlayerController() {
 		currentHoldingItemIndex = 0;
+		prevHoldingItemIndex = 0;
 	}
 
 	void Awake() {
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Start() {
 		var objMelee = Instantiate(Melee) as GameObject;
+		objMelee.GetComponent<Weapon>().SetAttackAble(true);
 		PickUp(objMelee, 2);
 		HoldWeapon(2);
 	}
@@ -89,7 +92,7 @@ public class PlayerController : MonoBehaviour {
 
 					var obj = weaponInventory.GetItem(i);
 
-					if (obj.gameObject.tag == "Weapon") {
+					if (obj.gameObject.tag == "Weapon" && i != 2) {
 						obj.GetComponent<Weapon>().SetAttackAble(false);
 					}
 					else {
@@ -124,6 +127,9 @@ public class PlayerController : MonoBehaviour {
 				if (!weaponInventory.IsSlotEmpty(2)) {
 					HoldWeapon(2);
 				}
+			}
+			else if (Input.GetKeyDown(KeyCode.Q)) {
+				SwapWeapon();
 			}
 			else if (Input.GetKeyDown(KeyCode.G)) {
 				if (currentHoldingItemIndex != 2) {
@@ -231,12 +237,13 @@ public class PlayerController : MonoBehaviour {
 
 			var mostPowerfulWeaponIndex = 0;
 
-			for (int i = weaponInventory.Length - 1; i > 0; i--) {
+			for (int i = 0; i < weaponInventory.Length; i++) {
 
 				var obj = weaponInventory.GetItem(i);
 				
 				if (obj.gameObject.tag == "Weapon") {
 					mostPowerfulWeaponIndex = i;
+					break;
 				}
 			}
 			HoldWeapon(mostPowerfulWeaponIndex);
@@ -248,6 +255,10 @@ public class PlayerController : MonoBehaviour {
 		var oldOne = currentHoldingItem;
 		oldOne.SetActive(false);
 		
+		if (index != currentHoldingItemIndex) {
+			prevHoldingItemIndex = currentHoldingItemIndex;
+		}
+
 		currentHoldingItemIndex = index;
 		
 		var newOne = weaponInventory.GetItem(index);
@@ -259,6 +270,14 @@ public class PlayerController : MonoBehaviour {
 	public void HoldItem(int index) {
 		currentHoldingItemIndex = index;
 		currentHoldingItem = itemInventory.GetItem(index);
+	}
+
+	public void SwapWeapon() {
+		if (!weaponInventory.IsSlotEmpty(prevHoldingItemIndex)) {
+			var nextWeaponIndex = prevHoldingItemIndex;
+			prevHoldingItemIndex = currentHoldingItemIndex;
+			HoldWeapon(nextWeaponIndex);
+		}
 	}
 
 	void SetEnableCollider2D(GameObject item, bool value) {
