@@ -32,7 +32,7 @@ public class Inventory : MonoBehaviour {
 		objItem = new GameObject[maxItem];
 		
 		for (int i = 0; i < objItem.Length; i++) {
-			objItem[i] = (objItem[i] == null) ? objEmptyItem : objItem[i];
+			objItem[i] = objEmptyItem;
 		}
 	}
 

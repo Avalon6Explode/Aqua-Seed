@@ -7,9 +7,6 @@ public class Gun : Weapon {
 		AUTOMATIC
 	}
 
-	//debug only
-	[SerializeField]
-	GameObject player;
 
 	[SerializeField]
 	ShootType shootType;
@@ -49,6 +46,7 @@ public class Gun : Weapon {
 		objBulletPooling = new GameObject[maxObjectPooling];
 		nextFire = 0.0f;
 		shootType = ShootType.SEMI;
+		energy = null;
 	}
 
 	void Awake() {
@@ -56,7 +54,6 @@ public class Gun : Weapon {
 			objBulletPooling[i] = Instantiate(objBullet) as GameObject;
 			objBulletPooling[i].SetActive(false);
 		}
-		energy = player.gameObject.GetComponent<RegenEnergy>();
 	}
 
 	void Update() {
@@ -66,14 +63,22 @@ public class Gun : Weapon {
 
 		isPressShoot = (shootType == ShootType.SEMI) ? Input.GetButtonDown("Fire1") : Input.GetButton("Fire1");
 
-		if (isAttackAble) {
-			if (IsUseAble && isPressShoot && Time.time > nextFire) {
+		if (energy != null) {
+			if (isAttackAble && IsUseAble && isPressShoot && Time.time > nextFire) {
 				nextFire = Time.time + fireRate;
 				Use();
 				PoolingControl();
 			}
 		}
+		else {
+			var player = GameObject.FindGameObjectWithTag("SceneManager").gameObject.GetComponent<SceneManager>().Player;
+			
+			if (player) {
+				energy = player.GetComponent<RegenEnergy>();
+			}
+		}
 	}
+
 
 	public override void Use() {
 		energy.Remove(energyCost);

@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour {
 	Inventory weaponInventory;
 
 	[SerializeField]
+	GameObject Melee;
+
+	[SerializeField]
 	Transform weaponTransform;
 
 
@@ -45,6 +48,12 @@ public class PlayerController : MonoBehaviour {
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		anim = GetComponent<Animator>();
 		health = GetComponent<RegenHealth>();
+	}
+
+	void Start() {
+		var objMelee = Instantiate(Melee) as GameObject;
+		PickUp(objMelee, 2);
+		HoldWeapon(2);
 	}
 
 	void Update() {
@@ -117,8 +126,10 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
 			else if (Input.GetKeyDown(KeyCode.G)) {
-				DropWeapon(currentHoldingItemIndex);
-				HoldMostPowerfulWeapon();
+				if (currentHoldingItemIndex != 2) {
+					DropWeapon(currentHoldingItemIndex);
+					HoldMostPowerfulWeapon();
+				}
 			}
 		}
 	}
@@ -181,7 +192,7 @@ public class PlayerController : MonoBehaviour {
 
 		switch (item.gameObject.tag) {
 			case "Item" :
-				itemInventory.Add(item);
+				itemInventory.Add(item, index);
 			break;
 
 			case "Weapon" :
@@ -220,10 +231,10 @@ public class PlayerController : MonoBehaviour {
 
 			var mostPowerfulWeaponIndex = 0;
 
-			for (int i = 0; i < weaponInventory.Length; i++) {
+			for (int i = weaponInventory.Length - 1; i > 0; i--) {
 
 				var obj = weaponInventory.GetItem(i);
-						
+				
 				if (obj.gameObject.tag == "Weapon") {
 					mostPowerfulWeaponIndex = i;
 				}

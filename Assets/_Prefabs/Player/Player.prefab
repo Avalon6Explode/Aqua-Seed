@@ -199,6 +199,7 @@ MonoBehaviour:
   objEmptyItem: {fileID: 176388, guid: 04a971480dde1bf468a1f8b7e0454755, type: 2}
   itemInventory: {fileID: 11424318}
   weaponInventory: {fileID: 11457372}
+  Melee: {fileID: 158984, guid: 7ff35ff51d0529f41a7e7f1c5554a2d6, type: 2}
   weaponTransform: {fileID: 432172}
 --- !u!114 &11433376
 MonoBehaviour:

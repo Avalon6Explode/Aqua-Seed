@@ -65,7 +65,7 @@ GameObject:
   - 222: {fileID: 22247122}
   - 114: {fileID: 11413304}
   m_Layer: 5
-  m_Name: bgStamina
+  m_Name: bgEnergy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ GameObject:
   - 111: {fileID: 11176540}
   - 114: {fileID: 11496026}
   m_Layer: 5
-  m_Name: imgStamina
+  m_Name: imgEnergy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ GameObject:
   - 222: {fileID: 22244554}
   m_Layer: 5
   m_Name: PlayerUI
-  m_TagString: Untagged
+  m_TagString: PlayerUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9864097, g: 1, b: 0.014705896, a: 1}
+  m_Color: {r: 0.9870182, g: 1, b: 0.058823526, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
