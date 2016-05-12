@@ -87,7 +87,6 @@ MonoBehaviour:
   attackPoint: 12
   weaponType: 1
   weaponClassify: 1
-  player: {fileID: 0}
   shootType: 1
   objBullet: {fileID: 144424, guid: 5261b95e98f9cfa4ab82f564a94b6d98, type: 2}
   initPoint: {fileID: 474498}
@@ -119,7 +118,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -766736353
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2a87176ff278742488ded6fc31e4de29, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e1a670ccd9b35f7459b44f0e7cbe2cb4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
