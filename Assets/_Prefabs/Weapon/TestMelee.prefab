@@ -59,6 +59,7 @@ MonoBehaviour:
   attackPoint: 14
   weaponType: 2
   weaponClassify: 3
+  slashRate: 0.2
   staminaCost: 10
 --- !u!212 &21200118
 SpriteRenderer:

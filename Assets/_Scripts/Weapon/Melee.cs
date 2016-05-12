@@ -3,10 +3,14 @@
 public class Melee : Weapon {
 
 	[SerializeField]
+	float slashRate;
+
+	[SerializeField]
 	int staminaCost;
 
-
+	
 	RegenStamina stamina;
+	float nextSlash;
 	bool isPressSlash;
 
 
@@ -18,8 +22,11 @@ public class Melee : Weapon {
 		itemName = "Melee";
 		weaponType = WeaponType.MELEE;
 		weaponClassify = WeaponClassify.TERTIARY;
+		staminaCost = 10;
+		slashRate = 0.2f;
 		stamina = null;
 		isPressSlash = false;
+		nextSlash = 0.0f;
 	}
 
 	void Update() {
@@ -27,7 +34,8 @@ public class Melee : Weapon {
 		isPressSlash = Input.GetButtonDown("Fire1");
 
 		if (stamina != null) {
-			if (isAttackAble && IsUseAble && isPressSlash) {
+			if (isAttackAble && IsUseAble && isPressSlash && Time.time > nextSlash) {
+				nextSlash = Time.time + slashRate;
 				Use();
 			}
 		}

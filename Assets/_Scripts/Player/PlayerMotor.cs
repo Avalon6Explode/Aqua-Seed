@@ -33,7 +33,7 @@ public class PlayerMotor : MonoBehaviour {
 		inputX = Input.GetAxisRaw("Horizontal");
 		inputY = Input.GetAxisRaw("Vertical");
 
-		if (stamina.Current < 25) {
+		if (stamina.Current < 30) {
 			currentSpeed = moveSpeed * 0.5f;
 		} 
 		else {

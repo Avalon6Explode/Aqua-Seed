@@ -160,8 +160,8 @@ MonoBehaviour:
   energy: 100
   maxEnergy: 100
   regenRate: 0.3
-  regenDelay: 1
-  regenPoint: 2
+  regenDelay: 2
+  regenPoint: 3
 --- !u!114 &11424318
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,9 +227,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stamina: 100
   maxStamina: 100
-  regenRate: 0.3
-  regenDelay: 4
-  regenPoint: 2
+  regenRate: 0.1
+  regenDelay: 2
+  regenPoint: 3
 --- !u!114 &11457372
 MonoBehaviour:
   m_ObjectHideFlags: 1

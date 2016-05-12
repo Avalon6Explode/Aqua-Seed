@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: StaminaUI
+  m_Name: EnergyUI
   serializedVersion: 6
   m_Legacy: 1
   m_Compressed: 0
@@ -21,13 +21,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 0
-        inSlope: 98.985
-        outSlope: 98.985
+        inSlope: 281.4
+        outSlope: 281.4
         tangentMode: 10
       - time: 1
-        value: 98.985
-        inSlope: 98.985
-        outSlope: 98.985
+        value: 281.4
+        inSlope: 281.4
+        outSlope: 281.4
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -41,13 +41,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 83.8
-        inSlope: 49.48999
-        outSlope: 49.48999
+        inSlope: 140.8
+        outSlope: 140.8
         tangentMode: 10
       - time: 1
-        value: 133.29
-        inSlope: 49.48999
-        outSlope: 49.48999
+        value: 224.6
+        inSlope: 140.8
+        outSlope: 140.8
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -57,7 +57,7 @@ AnimationClip:
     classID: 224
     script: {fileID: 0}
   m_PPtrCurves: []
-  m_SampleRate: 100
+  m_SampleRate: 112
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -91,13 +91,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 0
-        inSlope: 98.985
-        outSlope: 98.985
+        inSlope: 281.4
+        outSlope: 281.4
         tangentMode: 10
       - time: 1
-        value: 98.985
-        inSlope: 98.985
-        outSlope: 98.985
+        value: 281.4
+        inSlope: 281.4
+        outSlope: 281.4
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -111,13 +111,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 83.8
-        inSlope: 49.48999
-        outSlope: 49.48999
+        inSlope: 140.8
+        outSlope: 140.8
         tangentMode: 10
       - time: 1
-        value: 133.29
-        inSlope: 49.48999
-        outSlope: 49.48999
+        value: 224.6
+        inSlope: 140.8
+        outSlope: 140.8
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
