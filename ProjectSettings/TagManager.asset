@@ -61,3 +61,6 @@ TagManager:
   - name: Bullet
     uniqueID: 2368164929
     locked: 0
+  - name: SpriteUI
+    uniqueID: 343848209
+    locked: 0

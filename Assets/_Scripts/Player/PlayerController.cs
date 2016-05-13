@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour {
 	Animator anim;
 	RegenHealth health;
 
+	bool isFacingRight;
 
 	GameObject currentHoldingItem;
 	int currentHoldingItemIndex;
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour {
 	public PlayerController() {
 		currentHoldingItemIndex = 0;
 		prevHoldingItemIndex = 0;
+		isFacingRight = true;
 	}
 
 	void Awake() {
@@ -149,6 +151,8 @@ public class PlayerController : MonoBehaviour {
 			}
 			else if (col.gameObject.tag == "Weapon" && !weaponInventory.IsFull) {
 				
+				col.transform.GetChild(0).gameObject.SetActive(false);
+
 				switch (col.gameObject.GetComponent<Weapon>().Classify) {
 					case Weapon.WeaponClassify.PRIMARY :
 						PickUp(col.gameObject, 0);
@@ -232,6 +236,23 @@ public class PlayerController : MonoBehaviour {
 		currentHoldingItem = objEmptyItem;
 	}
 
+	public void HoldWeapon(int index) {
+		
+		var oldOne = currentHoldingItem;
+		oldOne.SetActive(false);
+		
+		if (index != currentHoldingItemIndex) {
+			prevHoldingItemIndex = currentHoldingItemIndex;
+		}
+
+		currentHoldingItemIndex = index;
+		
+		var newOne = weaponInventory.GetItem(index);
+		currentHoldingItem = newOne;
+
+		newOne.SetActive(true);
+	}
+
 	public void HoldMostPowerfulWeapon() {
 		if (!weaponInventory.IsEmpty) {
 
@@ -248,23 +269,6 @@ public class PlayerController : MonoBehaviour {
 			}
 			HoldWeapon(mostPowerfulWeaponIndex);
 		}
-	}
-
-	public void HoldWeapon(int index) {
-		
-		var oldOne = currentHoldingItem;
-		oldOne.SetActive(false);
-		
-		if (index != currentHoldingItemIndex) {
-			prevHoldingItemIndex = currentHoldingItemIndex;
-		}
-
-		currentHoldingItemIndex = index;
-		
-		var newOne = weaponInventory.GetItem(index);
-		currentHoldingItem = newOne;
-
-		newOne.SetActive(true);
 	}
 
 	public void HoldItem(int index) {

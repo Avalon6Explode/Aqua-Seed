@@ -15,6 +15,9 @@ public class Gun : Weapon {
 	GameObject objBullet;
 
 	[SerializeField]
+	Color bulletColor;
+
+	[SerializeField]
 	Transform initPoint;
 
 	[SerializeField]
@@ -79,7 +82,6 @@ public class Gun : Weapon {
 		}
 	}
 
-
 	public override void Use() {
 		energy.Remove(energyCost);
 		energy.ReInitRegen();
@@ -94,6 +96,7 @@ public class Gun : Weapon {
 					target.Normalize();
 				}
 
+				objBulletPooling[i].gameObject.GetComponent<SpriteRenderer>().color = bulletColor;
 				objBulletPooling[i].gameObject.GetComponent<Bullet>().SetOrigin(initPoint.position);
 				objBulletPooling[i].gameObject.GetComponent<Bullet>().SetDirection(target);
 				objBulletPooling[i].gameObject.GetComponent<Bullet>().SetAttackPoint(attackPoint);

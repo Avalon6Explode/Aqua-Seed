@@ -43,11 +43,27 @@ public abstract class Weapon : Item {
 		isAttackAble = false;
 	}
 
+	void OnTriggerEnter2D(Collider2D col) {		
+		if (!isAttackAble && col.gameObject.tag == "Player") {
+			objIconPickUp.SetActive(true);
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D col) {
+		if (col.gameObject.tag == "Player") {
+			objIconPickUp.SetActive(false);
+		}
+	}
+
 	public void SetAttackPoint(int point) {
 		attackPoint = point;
 	}
 
 	public void SetAttackAble(bool value) {
 		isAttackAble = value;
+	}
+
+	public void SetDisablePickUpUI(bool value) {
+		objIconPickUp.SetActive(value);
 	}
 }

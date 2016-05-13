@@ -1,102 +1,94 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &158984
+--- !u!1 &132728
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 468242}
-  - 114: {fileID: 11459448}
-  - 212: {fileID: 21200118}
-  - 61: {fileID: 6132990}
-  m_Layer: 12
-  m_Name: TestMelee
-  m_TagString: Weapon
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  - 4: {fileID: 499200}
+  - 61: {fileID: 6137134}
+  - 114: {fileID: 11443396}
+  m_Layer: 0
+  m_Name: UIShownPickUpButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &182746
+--- !u!1 &161996
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 489604}
-  - 212: {fileID: 21287852}
-  m_Layer: 12
-  m_Name: IconPos
+  - 4: {fileID: 429656}
+  - 212: {fileID: 21245430}
+  m_Layer: 0
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &468242
+--- !u!4 &429656
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158984}
+  m_GameObject: {fileID: 161996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5389934, y: 0.2564445, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 489604}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
---- !u!4 &489604
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 182746}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.33, z: 0}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 468242}
+  m_Father: {fileID: 499200}
   m_RootOrder: 0
---- !u!61 &6132990
+--- !u!4 &499200
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132728}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 429656}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!61 &6137134
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158984}
-  m_Enabled: 0
+  m_GameObject: {fileID: 132728}
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0060749054, y: 0.010724843}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
---- !u!114 &11459448
+  m_Size: {x: 0.59744287, y: 0.441921}
+--- !u!114 &11443396
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158984}
+  m_GameObject: {fileID: 132728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18b240432cc1e4047a328707c9d4b95b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9336149729482a34e80cdb2b323eb818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Melee
-  objIconPickUp: {fileID: 182746}
-  attackPoint: 8
-  weaponType: 2
-  weaponClassify: 3
-  slashRate: 0.2
-  staminaCost: 10
---- !u!212 &21200118
+--- !u!212 &21245430
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158984}
+  m_GameObject: {fileID: 161996}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -115,37 +107,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -766736353
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 63806d7382731c1478d4996ef87449fc, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
---- !u!212 &21287852
-SpriteRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 182746}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 0
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: 343848209
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1df867f366d00e345906e456ba97baa8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -160,5 +122,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 158984}
+  m_RootGameObject: {fileID: 132728}
   m_IsPrefabParent: 1
