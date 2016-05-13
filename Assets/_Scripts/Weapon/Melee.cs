@@ -12,10 +12,12 @@ public class Melee : Weapon {
 	RegenStamina stamina;
 	float nextSlash;
 	bool isPressSlash;
+	bool isReadyToGiveDamage;
 
 
 	public int StaminaCost { get { return staminaCost; } }
 	public bool IsUseAble { get { return stamina.Current >= staminaCost; } }
+	public bool IsReadyToGiveDamage { get { return isReadyToGiveDamage; } }
 
 
 	public Melee() : base() {
@@ -27,6 +29,7 @@ public class Melee : Weapon {
 		stamina = null;
 		isPressSlash = false;
 		nextSlash = 0.0f;
+		isReadyToGiveDamage = false;
 	}
 
 	void Update() {
@@ -37,6 +40,10 @@ public class Melee : Weapon {
 			if (isAttackAble && IsUseAble && isPressSlash && Time.time > nextSlash) {
 				nextSlash = Time.time + slashRate;
 				Use();
+				isReadyToGiveDamage = true;
+			}
+			else {
+				isReadyToGiveDamage = false;
 			}
 		}
 		else {

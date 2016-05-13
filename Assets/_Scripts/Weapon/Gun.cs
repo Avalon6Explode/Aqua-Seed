@@ -90,7 +90,7 @@ public class Gun : Weapon {
 	void PoolingControl() {
 
 		for (int i = 0; i < maxObjectPooling; i++) {
-			if (objBulletPooling[i].activeSelf == false) {
+			if (!objBulletPooling[i].activeSelf) {
 				
 				if (target.magnitude > 1) {
 					target.Normalize();

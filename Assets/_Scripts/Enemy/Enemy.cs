@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour {
 
 	Health health;
 	SpriteRenderer spriteRenderer;
+	UIReceiveDamageController uiDamageControl;
 
 
 	bool isInHurt;
@@ -27,6 +28,10 @@ public class Enemy : MonoBehaviour {
 	void Awake() {
 		health = GetComponent<Health>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
+	}
+
+	void Start() {
+		uiDamageControl = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().PlayerUI.transform.Find("UIReceiveDamageController").gameObject.GetComponent<UIReceiveDamageController>();
 	}
 
 	void Update() {
@@ -52,9 +57,17 @@ public class Enemy : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.gameObject.tag == "Bullet") {
-			isInHurt = true;
 			var totalDamage = col.gameObject.GetComponent<Bullet>().AttackPoint;
 			health.Remove(totalDamage);
+			isInHurt = true;
+
+			if (uiDamageControl) {
+				uiDamageControl.Show(col.gameObject.transform.position, totalDamage);
+			}
 		}
+	}
+
+	public void SetInHurt(bool value) {
+		isInHurt = value;
 	}
 }

@@ -11,6 +11,7 @@ GameObject:
   - 114: {fileID: 11459448}
   - 212: {fileID: 21200118}
   - 61: {fileID: 6132990}
+  - 58: {fileID: 5866062}
   m_Layer: 12
   m_Name: TestMelee
   m_TagString: Weapon
@@ -59,6 +60,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 468242}
   m_RootOrder: 0
+--- !u!58 &5866062
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158984}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.6661823
 --- !u!61 &6132990
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -90,7 +105,7 @@ MonoBehaviour:
   weaponType: 2
   weaponClassify: 3
   slashRate: 0.2
-  staminaCost: 10
+  staminaCost: 5
 --- !u!212 &21200118
 SpriteRenderer:
   m_ObjectHideFlags: 1
