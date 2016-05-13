@@ -151,7 +151,7 @@ public class PlayerController : MonoBehaviour {
 			}
 			else if (col.gameObject.tag == "Weapon" && !weaponInventory.IsFull) {
 				
-				col.transform.GetChild(0).gameObject.SetActive(false);
+				col.transform.Find("IconPos").gameObject.SetActive(false);
 
 				switch (col.gameObject.GetComponent<Weapon>().Classify) {
 					case Weapon.WeaponClassify.PRIMARY :
