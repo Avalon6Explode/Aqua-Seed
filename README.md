@@ -2,8 +2,7 @@
 The adventure game that participate the Adventure Jam 2016 #AdvJam2016 (Avalon Team)
 
 #Game Site
--
--
+- http://gamejolt.com/games/aqua-seed/146308#
 - https://www.facebook.com/Aqua-Seed-1297979523562750
 
 #Team Member
