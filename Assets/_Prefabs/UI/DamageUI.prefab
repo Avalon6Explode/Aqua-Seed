@@ -27,7 +27,7 @@ GameObject:
   - 222: {fileID: 22210390}
   - 114: {fileID: 11457430}
   - 114: {fileID: 11451132}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: txtDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 31.83
+  m_DynamicPixelsPerUnit: 100
 --- !u!114 &11451132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,7 +170,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 343848209
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &22432892
