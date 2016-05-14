@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void Start() {
-		uiDamageControl = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().PlayerUI.transform.Find("UIReceiveDamageController").gameObject.GetComponent<UIReceiveDamageController>();
+		uiDamageControl = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().DamageUI.transform.Find("UIReceiveDamageController").gameObject.GetComponent<UIReceiveDamageController>();
 	}
 
 	void Update() {

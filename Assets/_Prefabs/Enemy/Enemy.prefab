@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.535, y: 1.596, z: 0}
+  m_LocalPosition: {x: -2.9, y: -2.6000001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hurtColor: {r: 1, g: 0.1764706, b: 0.1764706, a: 1}
+  uiDamageControl: {fileID: 0}
 --- !u!114 &11449834
 MonoBehaviour:
   m_ObjectHideFlags: 1

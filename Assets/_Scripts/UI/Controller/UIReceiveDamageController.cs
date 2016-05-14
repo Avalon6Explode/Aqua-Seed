@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class UIReceiveDamageController : MonoBehaviour {
 
 	[SerializeField]
-	Canvas playerUI;
+	Canvas renderUI;
 
 	[SerializeField]
 	GameObject objTextDamage;
@@ -25,23 +25,17 @@ public class UIReceiveDamageController : MonoBehaviour {
 		
 		for (int i = 0; i < objTextDamagePooling.Length; i++) {
 			objTextDamagePooling[i] = Instantiate(objTextDamage) as GameObject;
-			objTextDamagePooling[i].transform.SetParent(playerUI.transform, false);
+			objTextDamagePooling[i].transform.SetParent(renderUI.transform, false);
 			objTextDamagePooling[i].SetActive(false);
 		}
-	}
-
-	void Update() {
-
 	}
 
 	public void Show(Vector2 worldPoint, int receiveDamage) {
 
 		for (int i = 0; i < maxObjectPooling; i++) {
 			if (!objTextDamagePooling[i].activeSelf) {
-				
-				var screenPoint = Camera.main.WorldToScreenPoint(worldPoint);
 
-				objTextDamagePooling[i].transform.position = screenPoint;
+				objTextDamagePooling[i].transform.position = worldPoint;
 				objTextDamagePooling[i].GetComponent<Text>().text = receiveDamage.ToString();
 				objTextDamagePooling[i].SetActive(true);
 				objTextDamagePooling[i].gameObject.GetComponent<DisableAgent>().StartDisable();

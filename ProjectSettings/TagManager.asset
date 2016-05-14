@@ -12,6 +12,7 @@ TagManager:
   - Weapon
   - SceneManager
   - PlayerUI
+  - DamageUI
   layers:
   - Default
   - TransparentFX
