@@ -82,7 +82,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.236, y: 0.076, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 446544}
@@ -118,8 +118,7 @@ MonoBehaviour:
   weaponType: 1
   weaponClassify: 2
   shootType: 0
-  objBullet: {fileID: 144424, guid: 5261b95e98f9cfa4ab82f564a94b6d98, type: 2}
-  bulletColor: {r: 0.9843137, g: 1, b: 0, a: 1}
+  objBullet: {fileID: 149968, guid: 330671da42786e04297cbf9ad3ee1c2f, type: 2}
   initPoint: {fileID: 469510}
   fireRate: 0.2
   energyCost: 3

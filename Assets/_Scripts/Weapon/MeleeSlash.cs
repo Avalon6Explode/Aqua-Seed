@@ -12,12 +12,18 @@ public class MeleeSlash : Weapon {
 	Vector2 direction;
 	Vector3 originPos;
 
+	Vector2 fromPos;
+	Vector3 toPos;
+	float totalRotation;
+
 	Rigidbody2D rigid;
 
 
 	public MeleeSlash() : base() {
 		direction = Vector2.zero;
 		originPos = Vector3.zero;
+		fromPos = Vector2.up;
+		totalRotation = 0.0f;
 	}
 
 	void Awake() {
@@ -34,6 +40,21 @@ public class MeleeSlash : Weapon {
 
 	void FixedUpdate() {
 		Use();
+	}
+
+	void OnEnable() {
+		toPos = direction;
+		totalRotation = Vector3.Angle(fromPos, toPos);
+
+		if (direction.x > 0.0f) {
+			totalRotation *= -1.0f;
+		}
+
+		transform.Rotate(0.0f, 0.0f, totalRotation, Space.Self);
+	}
+
+	void OnDisable() {
+		transform.localEulerAngles = Vector3.zero;
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {

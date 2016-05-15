@@ -8,7 +8,9 @@ public class Enemy : MonoBehaviour {
 
 	Health health;
 	SpriteRenderer spriteRenderer;
+	
 	UIReceiveDamageController uiDamageControl;
+	Inventory playerItemInventory;
 
 
 	bool isInHurt;
@@ -32,6 +34,7 @@ public class Enemy : MonoBehaviour {
 
 	void Start() {
 		uiDamageControl = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().DamageUI.transform.Find("UIReceiveDamageController").gameObject.GetComponent<UIReceiveDamageController>();
+		playerItemInventory = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().Player.GetComponent<PlayerController>().ItemInventory;
 	}
 
 	void Update() {
@@ -70,7 +73,7 @@ public class Enemy : MonoBehaviour {
 			health.Remove(totalDamage);
 			isInHurt = true;
 
-			if (uiDamageControl) {
+			if (uiDamageControl && playerItemInventory.IsItemExit("Suit")) {
 				uiDamageControl.Show(col.gameObject.transform.position, totalDamage);
 			}
 		}

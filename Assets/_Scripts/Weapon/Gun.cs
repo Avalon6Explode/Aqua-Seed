@@ -15,9 +15,6 @@ public class Gun : Weapon {
 	GameObject objBullet;
 
 	[SerializeField]
-	Color bulletColor;
-
-	[SerializeField]
 	Transform initPoint;
 
 	[SerializeField]
@@ -36,6 +33,7 @@ public class Gun : Weapon {
 	RegenEnergy energy;
 	
 	Vector2 target;
+
 
 	public int EnergyCost { get { return energyCost; } }
 	public bool IsUseAble { get { return energy.Current >= energyCost; } }
@@ -90,6 +88,7 @@ public class Gun : Weapon {
 	void PoolingControl() {
 
 		for (int i = 0; i < objBulletPooling.Length; i++) {
+			
 			if (!objBulletPooling[i].activeSelf) {
 				
 				if (target.magnitude > 1) {
@@ -102,7 +101,6 @@ public class Gun : Weapon {
 				bullet.SetDirection(target);
 				bullet.SetAttackPoint(attackPoint);
 
-				objBulletPooling[i].GetComponent<SpriteRenderer>().color = bulletColor;
 				objBulletPooling[i].SetActive(true);
 				
 				break;

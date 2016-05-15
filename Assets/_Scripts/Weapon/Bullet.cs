@@ -9,9 +9,15 @@ public class Bullet : Weapon {
 	Rigidbody2D rigid;
 	Vector2 direction;
 
+	Vector2 fromPos;
+	Vector3 toPos;
+	float totalRotation;
+
 
 	public Bullet() : base() {
 		direction = Vector2.zero;
+		fromPos = Vector2.up;
+		totalRotation = 0.0f;
 	}
 
 	void Awake() {
@@ -20,6 +26,21 @@ public class Bullet : Weapon {
 
 	void FixedUpdate() {
 		Use();
+	}
+
+	void OnEnable() {
+		toPos = direction;
+		totalRotation = Vector3.Angle(fromPos, toPos);
+
+		if (direction.x > 0.0f) {
+			totalRotation *= -1.0f;
+		}
+
+		transform.Rotate(0.0f, 0.0f, totalRotation, Space.Self);
+	}
+
+	void OnDisable() {
+		transform.localEulerAngles = Vector3.zero;
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
