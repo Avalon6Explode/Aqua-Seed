@@ -1,21 +1,35 @@
 ﻿using UnityEngine;
 
-public class Bullet : Weapon {
+public class MeleeSlash : Weapon {
 
 	[SerializeField]
 	float moveSpeed;
 
+	[SerializeField]
+	float maxMagnitude;
+
+
+	Vector2 direction;
+	Vector3 originPos;
 
 	Rigidbody2D rigid;
-	Vector2 direction;
 
 
-	public Bullet() : base() {
+	public MeleeSlash() : base() {
 		direction = Vector2.zero;
+		originPos = Vector3.zero;
 	}
 
 	void Awake() {
 		rigid = GetComponent<Rigidbody2D>();
+	}
+
+	void Update() {
+		var currentMagnitude = Mathf.Abs((transform.position - originPos).magnitude);
+		
+		if (currentMagnitude > maxMagnitude) {
+			gameObject.SetActive(false);
+		}
 	}
 
 	void FixedUpdate() {
@@ -33,6 +47,7 @@ public class Bullet : Weapon {
 	}
 
 	public void SetOrigin(Vector2 originPos) {
+		this.originPos = originPos;
 		transform.position = originPos;
 	}
 

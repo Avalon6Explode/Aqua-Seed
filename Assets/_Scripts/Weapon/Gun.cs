@@ -89,17 +89,20 @@ public class Gun : Weapon {
 
 	void PoolingControl() {
 
-		for (int i = 0; i < maxObjectPooling; i++) {
+		for (int i = 0; i < objBulletPooling.Length; i++) {
 			if (!objBulletPooling[i].activeSelf) {
 				
 				if (target.magnitude > 1) {
 					target.Normalize();
 				}
 
-				objBulletPooling[i].gameObject.GetComponent<SpriteRenderer>().color = bulletColor;
-				objBulletPooling[i].gameObject.GetComponent<Bullet>().SetOrigin(initPoint.position);
-				objBulletPooling[i].gameObject.GetComponent<Bullet>().SetDirection(target);
-				objBulletPooling[i].gameObject.GetComponent<Bullet>().SetAttackPoint(attackPoint);
+				var bullet = objBulletPooling[i].GetComponent<Bullet>();
+
+				bullet.SetOrigin(initPoint.position);
+				bullet.SetDirection(target);
+				bullet.SetAttackPoint(attackPoint);
+
+				objBulletPooling[i].GetComponent<SpriteRenderer>().color = bulletColor;
 				objBulletPooling[i].SetActive(true);
 				
 				break;

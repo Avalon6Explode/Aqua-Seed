@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
 	Inventory weaponInventory;
 
 	[SerializeField]
-	GameObject Melee;
+	GameObject objMelee;
 
 	[SerializeField]
 	Transform weaponTransform;
@@ -55,9 +55,9 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Start() {
-		var objMelee = Instantiate(Melee) as GameObject;
-		objMelee.GetComponent<Weapon>().SetAttackAble(true);
-		PickUp(objMelee, 2);
+		var melee = Instantiate(objMelee) as GameObject;
+		melee.GetComponent<Weapon>().SetAttackAble(true);
+		PickUp(melee, 2);
 		HoldWeapon(2);
 	}
 
@@ -162,15 +162,6 @@ public class PlayerController : MonoBehaviour {
 					case Weapon.WeaponClassify.SECONDARY :
 						PickUp(col.gameObject, 1);
 						HoldWeapon(1);
-					break;
-					
-					case Weapon.WeaponClassify.TERTIARY :
-						PickUp(col.gameObject, 2);
-						HoldWeapon(2);
-					break;
-
-					default :
-						print("Weapon's classify is none and can't be pick up.");
 					break;
 				}
 				

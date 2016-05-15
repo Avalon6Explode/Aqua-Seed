@@ -13,6 +13,7 @@ TagManager:
   - SceneManager
   - PlayerUI
   - DamageUI
+  - MeleeSlash
   layers:
   - Default
   - TransparentFX
