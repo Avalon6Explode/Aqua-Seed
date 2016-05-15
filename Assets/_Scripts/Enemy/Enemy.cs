@@ -56,8 +56,17 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		if (col.gameObject.tag == "Bullet") {
-			var totalDamage = col.gameObject.GetComponent<Bullet>().AttackPoint;
+		if (col.gameObject.tag == "Bullet" || col.gameObject.tag == "MeleeSlash") {
+			
+			var totalDamage = 0;
+
+			if (col.gameObject.tag == "Bullet") {
+				totalDamage = col.gameObject.GetComponent<Bullet>().AttackPoint;
+			}
+			else {
+				totalDamage = col.gameObject.GetComponent<MeleeSlash>().AttackPoint;
+			}
+
 			health.Remove(totalDamage);
 			isInHurt = true;
 
