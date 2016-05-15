@@ -41,7 +41,7 @@ GameObject:
   - 4: {fileID: 446544}
   - 114: {fileID: 11492110}
   - 212: {fileID: 21251746}
-  - 61: {fileID: 6185292}
+  - 61: {fileID: 6150542}
   m_Layer: 0
   m_Name: TestGun(Semi)
   m_TagString: Weapon
@@ -87,7 +87,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 446544}
   m_RootOrder: 1
---- !u!61 &6185292
+--- !u!61 &6150542
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -98,9 +98,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.02141881, y: 0.06113857}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.54197186, y: 0.43778098}
+  m_Size: {x: 0.5, y: 0.5}
 --- !u!114 &11492110
 MonoBehaviour:
   m_ObjectHideFlags: 1

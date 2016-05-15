@@ -24,7 +24,6 @@ public class Melee : Weapon {
 
 	float nextSlash;
 	bool isPressSlash;
-	bool isReadyToGiveDamage;
 
 
 	public int StaminaCost { get { return staminaCost; } }
@@ -40,8 +39,8 @@ public class Melee : Weapon {
 		stamina = null;
 		isPressSlash = false;
 		nextSlash = 0.0f;
-		isReadyToGiveDamage = false;
 		maxPooling = 10;
+		isAttackAble = true;
 		objMeleeSlashPooling = new GameObject[maxPooling];
 	}
 

@@ -6,13 +6,13 @@ public class PlayerController : MonoBehaviour {
 	GameObject objEmptyItem;
 
 	[SerializeField]
+	GameObject objMelee;
+
+	[SerializeField]
 	Inventory itemInventory;
 
 	[SerializeField]
 	Inventory weaponInventory;
-
-	[SerializeField]
-	GameObject objMelee;
 
 	[SerializeField]
 	Transform weaponTransform;
@@ -28,8 +28,11 @@ public class PlayerController : MonoBehaviour {
 	RegenHealth health;
 
 	bool isFacingRight;
+	bool isPressPickUp;
 
 	GameObject currentHoldingItem;
+	GameObject currentDropItem;
+
 	int currentHoldingItemIndex;
 	int prevHoldingItemIndex;
 
@@ -49,6 +52,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Awake() {
 		currentHoldingItem = objEmptyItem;
+		currentDropItem = null;
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		anim = GetComponent<Animator>();
 		health = GetComponent<RegenHealth>();
@@ -56,7 +60,6 @@ public class PlayerController : MonoBehaviour {
 
 	void Start() {
 		var melee = Instantiate(objMelee) as GameObject;
-		melee.GetComponent<Weapon>().SetAttackAble(true);
 		PickUp(melee, 2);
 		HoldWeapon(2);
 	}
@@ -64,6 +67,8 @@ public class PlayerController : MonoBehaviour {
 	void Update() {
 		inputX = Input.GetAxisRaw("Horizontal");
 		inputY = Input.GetAxisRaw("Vertical");
+
+		isPressPickUp = Input.GetButtonDown("PickUp");
 		
 		inputMouseVector = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		inputMouseVector -= new Vector2(transform.position.x, transform.position.y); 
@@ -73,37 +78,17 @@ public class PlayerController : MonoBehaviour {
 			weaponInventory.GetItem(i).gameObject.transform.position = weaponTransform.position; 
 		}
 
+		for (int i = 0; i < weaponInventory.Length; i++) {
 
-		if (itemInventory.IsItemExit("Suit")) {
-			if (!weaponInventory.IsEmpty) {
-				for (int i = 0; i < weaponInventory.Length; i++) {
+			var obj = weaponInventory.GetItem(i);
 
-					var obj = weaponInventory.GetItem(i);
-
-					if (obj.gameObject.tag == "Weapon") {
-						obj.GetComponent<Weapon>().SetAttackAble(true);
-					} 
-					else {
-						continue;
-					}
-				}
+			if (obj.gameObject.tag == "Weapon" && i != 2) {
+				obj.GetComponent<Weapon>().SetAttackAble(itemInventory.IsItemExit("Suit"));
 			}
-		} else {
-			if (!weaponInventory.IsEmpty) {
-				for (int i = 0; i < weaponInventory.Length; i++) {
-
-					var obj = weaponInventory.GetItem(i);
-
-					if (obj.gameObject.tag == "Weapon" && i != 2) {
-						obj.GetComponent<Weapon>().SetAttackAble(false);
-					}
-					else {
-						continue;
-					}
-				}
+			else {
+				continue;
 			}
 		}
-
 
 		if (health.Current > 0) {
 		
@@ -113,7 +98,6 @@ public class PlayerController : MonoBehaviour {
 			anim.SetBool("IsWalking", inputX != 0.0f || inputY != 0.0f);
 
 			spriteRenderer.flipX = (inputMouseVector.x > 0.0f) ? false : (inputMouseVector.x < 0.0f) ? true : spriteRenderer.flipX;
-
 
 			if (Input.GetKeyDown(KeyCode.Alpha1)) {
 				if (!weaponInventory.IsSlotEmpty(0)) {
@@ -143,30 +127,53 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnTriggerStay2D(Collider2D col) {
-		if (Input.GetKeyDown(KeyCode.E)) {
+		if (isPressPickUp) {
 
 			if (col.gameObject.tag == "Item" && !itemInventory.IsFull) {
 				PickUp(col.gameObject);
 				col.gameObject.SetActive(false);
 			}
-			else if (col.gameObject.tag == "Weapon" && !weaponInventory.IsFull) {
+			else if (col.gameObject.tag == "Weapon") {
 				
 				col.transform.Find("IconPos").gameObject.SetActive(false);
 
 				switch (col.gameObject.GetComponent<Weapon>().Classify) {
+
 					case Weapon.WeaponClassify.PRIMARY :
-						PickUp(col.gameObject, 0);
-						HoldWeapon(0);
+						if (weaponInventory.IsSlotEmpty(0)) {
+							PickUp(col.gameObject, 0);
+							HoldWeapon(0);
+						}
+						else {
+							DropWeapon(0);
+							SetEnableCollider2D(currentDropItem, false);
+
+							PickUp(col.gameObject, 0);
+							HoldWeapon(0);
+
+							if (!currentDropItem.Equals(weaponInventory.GetItem(0))) {
+								SetEnableCollider2D(currentDropItem, true);
+							}
+						}
 					break;
 					
 					case Weapon.WeaponClassify.SECONDARY :
-						PickUp(col.gameObject, 1);
-						HoldWeapon(1);
+						if (weaponInventory.IsSlotEmpty(1)) {
+							PickUp(col.gameObject, 1);
+							HoldWeapon(1);
+						}
+						else {
+							DropWeapon(1);
+							SetEnableCollider2D(currentDropItem, false);
+
+							PickUp(col.gameObject, 1);
+							HoldWeapon(1);
+
+							if (!currentDropItem.Equals(weaponInventory.GetItem(1))) {
+								SetEnableCollider2D(currentDropItem, true);
+							}
+						}
 					break;
-				}
-				
-				if (col.gameObject.tag == "Item") {
-					col.gameObject.SetActive(false);
 				}
 			}
 		}
@@ -218,8 +225,9 @@ public class PlayerController : MonoBehaviour {
 	public void DropWeapon(int index) {
 		if (!weaponInventory.GetItem(index).Equals(objEmptyItem)) {
 			var obj = weaponInventory.GetItem(index);
+			currentDropItem = obj;
 			SetEnableCollider2D(obj, true);
-			obj.GetComponent<Transform>().position -= Vector3.up * 0.4f; 
+			obj.GetComponent<Transform>().position -= Vector3.up * 0.15f;
 			obj.GetComponent<Weapon>().SetAttackAble(false);
 			obj.gameObject.SetActive(true);
 			weaponInventory.Remove(index);
@@ -228,8 +236,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void HoldWeapon(int index) {
-		
-		var oldOne = currentHoldingItem;
+
+		var oldOne = weaponInventory.GetItem(currentHoldingItemIndex);
 		oldOne.SetActive(false);
 		
 		if (index != currentHoldingItemIndex) {
