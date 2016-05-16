@@ -6,11 +6,11 @@ public class Bullet : Weapon {
 	float moveSpeed;
 
 
+	protected Vector2 direction;
+	protected float angle;
+	
 	Rigidbody2D rigid;
-	Vector2 direction;
-
 	Vector3 toPos;
-	float angle;
 
 
 	public Bullet() : base() {

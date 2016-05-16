@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour {
 			if (col.gameObject.tag == "Bullet") {
 				totalDamage = col.gameObject.GetComponent<Bullet>().AttackPoint;
 			}
-			else {
+			else if (col.gameObject.tag == "MeleeSlash") {
 				totalDamage = col.gameObject.GetComponent<MeleeSlash>().AttackPoint;
 			}
 
@@ -75,6 +75,25 @@ public class Enemy : MonoBehaviour {
 
 			if (uiDamageControl && playerItemInventory.IsItemExit("Suit")) {
 				uiDamageControl.Show(col.gameObject.transform.position, totalDamage);
+			}
+		}
+	}
+
+	void OnTriggerStay2D(Collider2D col) {
+		if (col.gameObject.tag == "BulletBeam") {
+
+			var totalDamage = col.gameObject.GetComponent<BulletBeam>().AttackPoint;
+			
+			health.Remove(totalDamage);
+			isInHurt = true;
+		
+			if (uiDamageControl && playerItemInventory.IsItemExit("Suit")) {
+
+				var randomMagnitudeX = Random.Range(-0.3f, 0.3f);
+				var randomMagnitudeY = Random.Range(-0.3f, 0.3f);
+
+				var randomPosVector = new Vector3(randomMagnitudeX, randomMagnitudeY);
+				uiDamageControl.Show(col.gameObject.transform.position + randomPosVector, totalDamage);
 			}
 		}
 	}

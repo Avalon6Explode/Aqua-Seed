@@ -24,12 +24,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 445854}
   - 212: {fileID: 21233436}
-  - 50: {fileID: 5082584}
   - 58: {fileID: 5847586}
-  - 114: {fileID: 11468604}
+  - 114: {fileID: 11475542}
   m_Layer: 9
   m_Name: Bullet(Beam)
-  m_TagString: Bullet
+  m_TagString: BulletBeam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,23 +58,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 445854}
   m_RootOrder: 0
---- !u!50 &5082584
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140796}
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
 --- !u!58 &5847586
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -90,7 +72,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
---- !u!114 &11468604
+--- !u!114 &11475542
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -98,15 +80,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 140796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb398e4add1a36341b7a07bcdf341c13, type: 3}
+  m_Script: {fileID: 11500000, guid: 247c8944a2dc5fc46ae1f942f4544d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Bullet
+  itemName: Weapon
   objIconPickUp: {fileID: 108260}
   attackPoint: 0
   weaponType: 0
   weaponClassify: 0
-  moveSpeed: 80
+  moveSpeed: 0
 --- !u!212 &21233436
 SpriteRenderer:
   m_ObjectHideFlags: 1

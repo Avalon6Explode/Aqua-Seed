@@ -1,80 +1,59 @@
 ﻿using UnityEngine;
 
-public class Gun : Weapon {
-
-	protected enum ShootType {
-		SEMI,
-		AUTOMATIC,
-		BEAM
-	}
-
+public class GunBeam : Gun {
 
 	[SerializeField]
-	protected ShootType shootType;
+	float beamInterval;
 
 	[SerializeField]
-	protected GameObject objBullet;
+	float energyLostRate;
 
 	[SerializeField]
-	protected Transform initPoint;
-
-	[SerializeField]
-	protected float fireRate;
-
-	[SerializeField]
-	protected int energyCost;
-
-	[SerializeField]
-	protected int maxObjectPooling;
+	LayerMask layerMask;
 
 
-	protected GameObject[] objBulletPooling;
-	protected Vector2 target;
-	protected RegenEnergy energy;
-	protected GameObject player;
-	protected float nextFire;
+	float currentBeamInterval;
+	bool isInUse;
+	bool isReadyToGiveDamage;
 
-	protected SpriteRenderer spriteRenderer;
-	protected bool isPressShoot;
-
-	protected Vector3 inputMouseVector;
-	protected Vector3 toPos;
-	protected float angle;
-	
-
-	public int EnergyCost { get { return energyCost; } }
-	public bool IsUseAble { get { return energy.Current >= energyCost; } }
+	float nextEnergyLost;
 
 
-	public Gun() : base() {
-		itemName = "Gun";
-		weaponType = Weapon.WeaponType.GUN;
-		weaponClassify = Weapon.WeaponClassify.PRIMARY;
-		maxObjectPooling = 30;
-		nextFire = 0.0f;
-		shootType = ShootType.SEMI;
-		energy = null;
-		angle = 0.0f;
+	public bool IsInUse { get { return isInUse; } }
+	public bool IsReadyToGiveDamage { get { return isReadyToGiveDamage; } }
+
+
+	public GunBeam() {
+		itemName = "GunBeam";
+		shootType = ShootType.BEAM;
+		fireRate = 0.0f;
+		energyCost = 4;
+		attackPoint = 12;
+		beamInterval = 0.0f;
+		currentBeamInterval = 0.0f;
+		isInUse = false;
 	}
 
 	void Awake() {
+
 		objBulletPooling = new GameObject[maxObjectPooling];
 		spriteRenderer = GetComponent<SpriteRenderer>();
 
 		for (int i = 0; i < maxObjectPooling; i++) {
 			objBulletPooling[i] = Instantiate(objBullet) as GameObject;
+			objBulletPooling[i].transform.parent = transform;
 			objBulletPooling[i].SetActive(false);
 		}
 	}
 
 	void Start() {
-		player = GameObject.FindGameObjectWithTag("SceneManager").gameObject.GetComponent<SceneManager>().Player;
+		player = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().Player;
 	}
 
 	void Update() {
-		isPressShoot = (shootType == ShootType.SEMI) ? Input.GetButtonDown("Fire1") : Input.GetButton("Fire1");
+		isPressShoot = Input.GetButton("Fire1");
 		inputMouseVector = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
+	
 		target = inputMouseVector;
 		target -= new Vector2(initPoint.position.x, initPoint.position.y);
 
@@ -96,12 +75,35 @@ public class Gun : Weapon {
 				}
 			}
 		}
-		
+
 		if (energy != null) {
 			if (isHolding && isAttackAble && IsUseAble && isPressShoot && Time.time > nextFire) {
+
 				nextFire = Time.time + fireRate;
-				Use();
 				PoolingControl();
+
+				if (Time.time > nextEnergyLost) {
+					Use();
+					nextEnergyLost = Time.time + energyLostRate;
+				}
+
+				currentBeamInterval += beamInterval;
+				isInUse = true;
+				isReadyToGiveDamage = true;
+			}
+			else {
+				currentBeamInterval = 0.0f;
+				isInUse = false;
+				isReadyToGiveDamage = false;
+
+				for (int i = 0; i < objBulletPooling.Length; i++) {
+					if (objBulletPooling[i].activeSelf) {
+						objBulletPooling[i].SetActive(false);
+					}
+					else {
+						continue;
+					}
+				}
 			}
 		}
 		else {
@@ -122,19 +124,19 @@ public class Gun : Weapon {
 	void PoolingControl() {
 
 		for (int i = 0; i < objBulletPooling.Length; i++) {
-			
+
 			if (!objBulletPooling[i].activeSelf) {
-				
+
 				target.Normalize();
 
-				var bullet = objBulletPooling[i].GetComponent<Bullet>();
-
-				bullet.SetOrigin(initPoint.position);
+				var bullet = objBulletPooling[i].GetComponent<BulletBeam>();
+				var beamOrigin = initPoint.position + new Vector3(target.x, target.y) * currentBeamInterval; //new Vector3(initPoint.position.x + target.x, initPoint.position.y + target.y, 0.0f) * currentBeamInterval;
+				
+				bullet.SetOrigin(beamOrigin);
 				bullet.SetDirection(target);
 				bullet.SetAttackPoint(attackPoint);
 
 				objBulletPooling[i].SetActive(true);
-				
 				break;
 			}
 		}

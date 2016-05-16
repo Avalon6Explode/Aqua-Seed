@@ -27,14 +27,11 @@ public class PlayerController : MonoBehaviour {
 	Vector2 inputMouseVector;
 	Vector2 newHoldWeaponPos;
 
-	float offset;
-
 	SpriteRenderer spriteRenderer;
 	Animator anim;
 	RegenHealth health;
 
 	bool isFacingRight;
-	bool isFlipWeaponPos;
 	bool isPressPickUp;
 
 	GameObject currentHoldingItem;
@@ -55,8 +52,6 @@ public class PlayerController : MonoBehaviour {
 		currentHoldingItemIndex = 0;
 		prevHoldingItemIndex = 0;
 		isFacingRight = true;
-		isFlipWeaponPos = false;
-		offset = 1.0f;
 	}
 
 	void Awake() {

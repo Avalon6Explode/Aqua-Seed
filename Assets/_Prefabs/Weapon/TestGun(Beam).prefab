@@ -24,7 +24,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 439592}
-  - 114: {fileID: 11428326}
+  - 114: {fileID: 11446736}
   - 212: {fileID: 21240724}
   - 61: {fileID: 6176498}
   m_Layer: 0
@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.232, y: 0.04, z: 0}
+  m_LocalPosition: {x: 0.312, y: -0.065, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 439592}
@@ -101,7 +101,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
---- !u!114 &11428326
+--- !u!114 &11446736
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -109,19 +109,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 143776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3061634bb20c33848bd3d22f8c43e999, type: 3}
+  m_Script: {fileID: 11500000, guid: 99da844a0aadf6941a32cbbb11e68d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gun
+  itemName: GunBeam
   objIconPickUp: {fileID: 125532}
-  attackPoint: 12
+  attackPoint: 1
   weaponType: 1
   weaponClassify: 1
-  shootType: 1
+  shootType: 2
   objBullet: {fileID: 140796, guid: 110457dbdf88164428f2530a0e828706, type: 2}
   initPoint: {fileID: 445168}
-  fireRate: 0.15
+  fireRate: 0
   energyCost: 4
+  maxObjectPooling: 60
+  beamInterval: 0.35
+  energyLostRate: 0.1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1792
 --- !u!212 &21240724
 SpriteRenderer:
   m_ObjectHideFlags: 1
