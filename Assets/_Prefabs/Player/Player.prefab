@@ -48,6 +48,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &155224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 410160}
+  m_Layer: 8
+  m_Name: WeaponPosRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &175176
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,12 +72,24 @@ GameObject:
   m_Component:
   - 4: {fileID: 432172}
   m_Layer: 8
-  m_Name: WeaponPos
+  m_Name: WeaponPosLeft
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &410160
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155224}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.145, y: -0.034, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 478482}
+  m_RootOrder: 1
 --- !u!4 &413562
 Transform:
   m_ObjectHideFlags: 1
@@ -82,11 +109,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.145, y: -0.034, z: 0}
+  m_LocalPosition: {x: -0.145, y: -0.034, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 478482}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &478482
 Transform:
   m_ObjectHideFlags: 1
@@ -98,6 +125,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 413562}
+  - {fileID: 410160}
   - {fileID: 432172}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -281,7 +309,8 @@ MonoBehaviour:
   objMelee: {fileID: 193816, guid: 7ff35ff51d0529f41a7e7f1c5554a2d6, type: 2}
   itemInventory: {fileID: 11424318}
   weaponInventory: {fileID: 11457372}
-  weaponTransform: {fileID: 432172}
+  weaponTransformRight: {fileID: 410160}
+  weaponTransformLeft: {fileID: 432172}
 --- !u!114 &11433376
 MonoBehaviour:
   m_ObjectHideFlags: 1

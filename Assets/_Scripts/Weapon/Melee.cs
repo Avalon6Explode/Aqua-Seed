@@ -17,13 +17,19 @@ public class Melee : Weapon {
 	[SerializeField]
 	int staminaCost;
 
+
+	GameObject player;
 	GameObject[] objMeleeSlashPooling;
+
 	RegenStamina stamina;
+	SpriteRenderer spriteRenderer;
+
 	Vector2 target;
 
 	float nextSlash;
 	bool isPressSlash;
 
+	Vector3 inputMouseVector;
 	Vector3 toPos;
 	float angle;
 
@@ -48,26 +54,41 @@ public class Melee : Weapon {
 	}
 
 	void Awake() {
+		spriteRenderer = GetComponent<SpriteRenderer>();
+
 		for (int i = 0; i < objMeleeSlashPooling.Length; i++) {
 			objMeleeSlashPooling[i] = Instantiate(objMeleeSlash) as GameObject;
 			objMeleeSlashPooling[i].SetActive(false);
 		}
 	}
 
-	void Update() {
+	void Start() {
+		player = GameObject.FindGameObjectWithTag("SceneManager").gameObject.GetComponent<SceneManager>().Player;
+	}
 
+	void Update() {
 		isPressSlash = Input.GetButtonDown("Fire1");
-		
-		target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		inputMouseVector = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+		target = inputMouseVector;
 		target -= new Vector2(initPoint.position.x, initPoint.position.y);
 
-		toPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		toPos = inputMouseVector;
 		toPos -= new Vector3(transform.position.x, transform.position.y);
 		toPos.Normalize();
 
 		if (isHolding) {
 			angle = Mathf.Atan2(toPos.y, toPos.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.Euler(0.0f, 0.0f, angle);
+			
+			if (player) {
+				if (inputMouseVector.x > player.transform.position.x) {
+					spriteRenderer.flipY = false;
+				}
+				else if (inputMouseVector.x < player.transform.position.x) {
+					spriteRenderer.flipY = true;
+				}
+			}
 		}
 
 		if (stamina != null) {
@@ -78,10 +99,11 @@ public class Melee : Weapon {
 			}
 		}
 		else {
-			var player = GameObject.FindGameObjectWithTag("SceneManager").gameObject.GetComponent<SceneManager>().Player;
-			
 			if (player) {
 				stamina = player.GetComponent<RegenStamina>();
+			} 
+			else {
+				player = GameObject.FindGameObjectWithTag("SceneManager").gameObject.GetComponent<SceneManager>().Player;
 			}
 		}
 	}

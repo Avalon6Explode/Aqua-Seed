@@ -47,7 +47,7 @@ public abstract class Weapon : Item {
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {		
-		if (!isAttackAble && col.gameObject.tag == "Player") {
+		if (!isHolding && col.gameObject.tag == "Player") {
 			objIconPickUp.SetActive(true);
 		}
 	}

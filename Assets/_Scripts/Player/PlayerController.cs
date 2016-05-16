@@ -15,19 +15,26 @@ public class PlayerController : MonoBehaviour {
 	Inventory weaponInventory;
 
 	[SerializeField]
-	Transform weaponTransform;
+	Transform weaponTransformRight;
+
+	[SerializeField]
+	Transform weaponTransformLeft;
 
 
 	float inputX;
 	float inputY;
 
 	Vector2 inputMouseVector;
+	Vector2 newHoldWeaponPos;
+
+	float offset;
 
 	SpriteRenderer spriteRenderer;
 	Animator anim;
 	RegenHealth health;
 
 	bool isFacingRight;
+	bool isFlipWeaponPos;
 	bool isPressPickUp;
 
 	GameObject currentHoldingItem;
@@ -48,6 +55,8 @@ public class PlayerController : MonoBehaviour {
 		currentHoldingItemIndex = 0;
 		prevHoldingItemIndex = 0;
 		isFacingRight = true;
+		isFlipWeaponPos = false;
+		offset = 1.0f;
 	}
 
 	void Awake() {
@@ -67,16 +76,20 @@ public class PlayerController : MonoBehaviour {
 	void Update() {
 		inputX = Input.GetAxisRaw("Horizontal");
 		inputY = Input.GetAxisRaw("Vertical");
-
 		isPressPickUp = Input.GetButtonDown("PickUp");
 		
 		inputMouseVector = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		inputMouseVector -= new Vector2(transform.position.x, transform.position.y); 
-
-
+		
 		for (int i = 0; i < weaponInventory.Length; i++) {
-			weaponInventory.GetItem(i).gameObject.transform.position = weaponTransform.position; 
+			 if (inputMouseVector.x > transform.position.x) {
+			 	weaponInventory.GetItem(i).gameObject.transform.position = weaponTransformRight.position;
+			 }
+			 else if (inputMouseVector.x < transform.position.x) {
+			 	weaponInventory.GetItem(i).gameObject.transform.position = weaponTransformLeft.position;
+			 } 
 		}
+
+		inputMouseVector -= new Vector2(transform.position.x, transform.position.y); 
 
 		for (int i = 0; i < weaponInventory.Length; i++) {
 
@@ -98,7 +111,7 @@ public class PlayerController : MonoBehaviour {
 			anim.SetBool("IsWalking", inputX != 0.0f || inputY != 0.0f);
 
 			spriteRenderer.flipX = (inputMouseVector.x > 0.0f) ? false : (inputMouseVector.x < 0.0f) ? true : spriteRenderer.flipX;
-
+			
 			if (Input.GetKeyDown(KeyCode.Alpha1)) {
 				if (!weaponInventory.IsSlotEmpty(0)) {
 					HoldWeapon(0);
@@ -224,14 +237,19 @@ public class PlayerController : MonoBehaviour {
 
 	public void DropWeapon(int index) {
 		if (!weaponInventory.GetItem(index).Equals(objEmptyItem)) {
+			
 			var obj = weaponInventory.GetItem(index);
+			
 			currentDropItem = obj;
 			SetEnableCollider2D(obj, true);
-			obj.GetComponent<Transform>().position -= Vector3.up * 0.15f;
+
+			obj.GetComponent<SpriteRenderer>().flipY = false;
 			obj.GetComponent<Weapon>().SetAttackAble(false);
 			obj.GetComponent<Weapon>().SetHolding(false);
+			obj.transform.position -= Vector3.up * 0.15f;
 			obj.transform.eulerAngles = Vector3.zero;
 			obj.gameObject.SetActive(true);
+			
 			weaponInventory.Remove(index);
 		}
 		currentHoldingItem = objEmptyItem;
