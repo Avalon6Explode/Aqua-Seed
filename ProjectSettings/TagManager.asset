@@ -60,6 +60,9 @@ TagManager:
   - name: Item
     uniqueID: 3528230943
     locked: 0
+  - name: MeleeSlash
+    uniqueID: 1301678511
+    locked: 0
   - name: Top
     uniqueID: 2408524789
     locked: 0

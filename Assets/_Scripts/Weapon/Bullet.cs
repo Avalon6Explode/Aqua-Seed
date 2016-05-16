@@ -29,7 +29,8 @@ public class Bullet : Weapon {
 	void OnEnable() {
 		toPos = direction;
 		angle = Mathf.Atan2(toPos.y, toPos.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.Euler(0.0f, 0.0f, angle - 90);
+		angle -= 90;
+		transform.rotation = Quaternion.Euler(0.0f, 0.0f, angle);
 	}
 
 	void OnDisable() {
