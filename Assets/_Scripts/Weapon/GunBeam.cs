@@ -28,8 +28,9 @@ public class GunBeam : Gun {
 		shootType = ShootType.BEAM;
 		fireRate = 0.0f;
 		energyCost = 4;
-		attackPoint = 12;
-		beamInterval = 0.0f;
+		attackPoint = 1;
+		beamInterval = 0.35f;
+		energyLostRate = 0.1f;
 		currentBeamInterval = 0.0f;
 		isInUse = false;
 	}
@@ -62,7 +63,7 @@ public class GunBeam : Gun {
 		toPos.Normalize();
 
 		if (isHolding) {
-			
+
 			angle = Mathf.Atan2(toPos.y, toPos.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.Euler(0.0f, 0.0f, angle);
 
