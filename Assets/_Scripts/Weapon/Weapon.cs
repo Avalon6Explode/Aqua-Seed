@@ -28,10 +28,12 @@ public abstract class Weapon : Item {
 
 
 	protected bool isAttackAble;
+	protected bool isHolding;
 
 
 	public int AttackPoint { get { return attackPoint; } }
 	public bool IsAttackAble { get { return isAttackAble; } }
+	public bool IsHolding { get { return isHolding; } }
 	public WeaponType Type { get { return weaponType; } }
 	public WeaponClassify Classify { get { return weaponClassify; } }
 
@@ -41,6 +43,7 @@ public abstract class Weapon : Item {
 		weaponType = WeaponType.NONE;
 		weaponClassify = Weapon.WeaponClassify.NONE;
 		isAttackAble = false;
+		isHolding = false;
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {		
@@ -61,6 +64,10 @@ public abstract class Weapon : Item {
 
 	public void SetAttackAble(bool value) {
 		isAttackAble = value;
+	}
+
+	public void SetHolding(bool value) {
+		isHolding = value;
 	}
 
 	public void SetDisablePickUpUI(bool value) {

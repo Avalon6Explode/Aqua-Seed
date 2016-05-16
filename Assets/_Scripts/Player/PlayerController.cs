@@ -229,6 +229,8 @@ public class PlayerController : MonoBehaviour {
 			SetEnableCollider2D(obj, true);
 			obj.GetComponent<Transform>().position -= Vector3.up * 0.15f;
 			obj.GetComponent<Weapon>().SetAttackAble(false);
+			obj.GetComponent<Weapon>().SetHolding(false);
+			obj.transform.eulerAngles = Vector3.zero;
 			obj.gameObject.SetActive(true);
 			weaponInventory.Remove(index);
 		}
@@ -237,7 +239,13 @@ public class PlayerController : MonoBehaviour {
 
 	public void HoldWeapon(int index) {
 
-		var oldOne = weaponInventory.GetItem(currentHoldingItemIndex);
+		var oldOne = weaponInventory.GetItem(currentHoldingItemIndex);	
+		var oldOneWeapon = oldOne.GetComponent<Weapon>();
+		
+		if (oldOneWeapon) {
+			oldOneWeapon.SetHolding(false);
+		}
+
 		oldOne.SetActive(false);
 		
 		if (index != currentHoldingItemIndex) {
@@ -249,6 +257,7 @@ public class PlayerController : MonoBehaviour {
 		var newOne = weaponInventory.GetItem(index);
 		currentHoldingItem = newOne;
 
+		newOne.GetComponent<Weapon>().SetHolding(true);
 		newOne.SetActive(true);
 	}
 

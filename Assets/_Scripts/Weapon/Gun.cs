@@ -28,6 +28,8 @@ public class Gun : Weapon {
 	float nextFire;
 	bool isPressShoot;
 
+	Vector3 toPos;
+	float angle;
 
 	GameObject[] objBulletPooling;
 	RegenEnergy energy;
@@ -48,6 +50,7 @@ public class Gun : Weapon {
 		nextFire = 0.0f;
 		shootType = ShootType.SEMI;
 		energy = null;
+		angle = 0.0f;
 	}
 
 	void Awake() {
@@ -58,12 +61,21 @@ public class Gun : Weapon {
 	}
 
 	void Update() {
-		
-		target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		target -= new Vector2(initPoint.position.x, initPoint.position.y);
 
 		isPressShoot = (shootType == ShootType.SEMI) ? Input.GetButtonDown("Fire1") : Input.GetButton("Fire1");
 
+		target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		target -= new Vector2(initPoint.position.x, initPoint.position.y);
+
+		toPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		toPos -= new Vector3(transform.position.x, transform.position.y);
+		toPos.Normalize();
+
+		if (isHolding) {
+			angle = Mathf.Atan2(toPos.y, toPos.x) * Mathf.Rad2Deg;
+			transform.rotation = Quaternion.Euler(0.0f, 0.0f, angle);
+		}
+		
 		if (energy != null) {
 			if (isAttackAble && IsUseAble && isPressShoot && Time.time > nextFire) {
 				nextFire = Time.time + fireRate;
