@@ -122,7 +122,7 @@ MonoBehaviour:
   initPoint: {fileID: 445168}
   fireRate: 0
   energyCost: 4
-  maxObjectPooling: 60
+  maxObjectPooling: 100
   beamInterval: 0.35
   energyLostRate: 0.1
   layerMask:
