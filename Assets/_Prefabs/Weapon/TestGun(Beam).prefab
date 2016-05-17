@@ -208,9 +208,9 @@ MonoBehaviour:
   initPointLeft: {fileID: 479968}
   initPointRight: {fileID: 439994}
   fireRate: 0
-  energyCost: 4
+  energyCost: 2
   maxObjectPooling: 100
-  energyLostRate: 0.1
+  energyLostRate: 0.06
   backWardForce: 7
 --- !u!114 &11476106
 MonoBehaviour:
