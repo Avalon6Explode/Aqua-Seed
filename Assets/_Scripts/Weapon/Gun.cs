@@ -19,6 +19,12 @@ public class Gun : Weapon {
 	protected Transform initPoint;
 
 	[SerializeField]
+	protected Transform initPointLeft;
+
+	[SerializeField]
+	protected Transform initPointRight;
+
+	[SerializeField]
 	protected float fireRate;
 
 	[SerializeField]
@@ -88,11 +94,17 @@ public class Gun : Weapon {
 			transform.rotation = Quaternion.Euler(0.0f, 0.0f, angle);
 
 			if (player) {
+
 				if (inputMouseVector.x > player.transform.position.x) {
+					
 					spriteRenderer.flipY = false;
+					initPoint.localPosition = initPointRight.transform.localPosition;
+					
 				}
 				else if (inputMouseVector.x < player.transform.position.x) {
+					
 					spriteRenderer.flipY = true;
+					initPoint.localPosition = initPointLeft.transform.localPosition;
 				}
 			}
 		}

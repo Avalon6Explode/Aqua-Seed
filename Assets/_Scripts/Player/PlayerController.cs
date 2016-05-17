@@ -31,9 +31,8 @@ public class PlayerController : MonoBehaviour {
 	Animator anim;
 	RegenHealth health;
 
-	bool isFacingRight;
 	bool isPressPickUp;
-
+	
 	GameObject currentHoldingItem;
 	GameObject currentDropItem;
 
@@ -51,7 +50,6 @@ public class PlayerController : MonoBehaviour {
 	public PlayerController() {
 		currentHoldingItemIndex = 0;
 		prevHoldingItemIndex = 0;
-		isFacingRight = true;
 	}
 
 	void Awake() {

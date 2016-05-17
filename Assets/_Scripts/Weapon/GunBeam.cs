@@ -3,20 +3,18 @@
 public class GunBeam : Gun {
 
 	[SerializeField]
-	float beamInterval;
-
-	[SerializeField]
 	float energyLostRate;
 
 	[SerializeField]
-	LayerMask layerMask;
+	float backWardForce;
 
 
-	float currentBeamInterval;
+	float nextEnergyLost;
+	
 	bool isInUse;
 	bool isReadyToGiveDamage;
 
-	float nextEnergyLost;
+	BulletBeamController bulletBeamController;
 
 
 	public bool IsInUse { get { return isInUse; } }
@@ -29,22 +27,14 @@ public class GunBeam : Gun {
 		fireRate = 0.0f;
 		energyCost = 4;
 		attackPoint = 1;
-		beamInterval = 0.35f;
 		energyLostRate = 0.1f;
-		currentBeamInterval = 0.0f;
 		isInUse = false;
+		backWardForce = 7.0f;
 	}
 
 	void Awake() {
-
-		objBulletPooling = new GameObject[maxObjectPooling];
 		spriteRenderer = GetComponent<SpriteRenderer>();
-
-		for (int i = 0; i < maxObjectPooling; i++) {
-			objBulletPooling[i] = Instantiate(objBullet) as GameObject;
-			objBulletPooling[i].transform.parent = transform;
-			objBulletPooling[i].SetActive(false);
-		}
+		bulletBeamController = GetComponent<BulletBeamController>();
 	}
 
 	void Start() {
@@ -52,6 +42,7 @@ public class GunBeam : Gun {
 	}
 
 	void Update() {
+
 		isPressShoot = Input.GetButton("Fire1");
 		inputMouseVector = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 	
@@ -60,51 +51,57 @@ public class GunBeam : Gun {
 
 		toPos = inputMouseVector;
 		toPos -= new Vector3(transform.position.x, transform.position.y);
-		toPos.Normalize();
-
+	
 		if (isHolding) {
 
+			toPos.Normalize();
 			angle = Mathf.Atan2(toPos.y, toPos.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.Euler(0.0f, 0.0f, angle);
 
 			if (player) {
-				if (inputMouseVector.x > player.transform.position.x) {
+
+				if (inputMouseVector.x > player.transform.position.x) {					
+					
 					spriteRenderer.flipY = false;
+					initPoint.localPosition = initPointRight.transform.localPosition;
+				
 				}
 				else if (inputMouseVector.x < player.transform.position.x) {
+					
 					spriteRenderer.flipY = true;
+					initPoint.localPosition = initPointLeft.transform.localPosition;
+				
 				}
 			}
 		}
 
 		if (energy != null) {
+
 			if (isHolding && isAttackAble && IsUseAble && isPressShoot && Time.time > nextFire) {
 
 				nextFire = Time.time + fireRate;
-				PoolingControl();
+
+				if (player) {
+
+					var playerRigid = player.GetComponent<Rigidbody2D>();
+					var moveTarget = target * -1.0f;
+					moveTarget.Normalize();
+					
+					playerRigid.AddForce(moveTarget * backWardForce, ForceMode2D.Force);
+				}
 
 				if (Time.time > nextEnergyLost) {
 					Use();
 					nextEnergyLost = Time.time + energyLostRate;
 				}
-
-				currentBeamInterval += beamInterval;
+				bulletBeamController.StartFire();
 				isInUse = true;
 				isReadyToGiveDamage = true;
 			}
 			else {
-				currentBeamInterval = 0.0f;
+				bulletBeamController.StopFire();
 				isInUse = false;
 				isReadyToGiveDamage = false;
-
-				for (int i = 0; i < objBulletPooling.Length; i++) {
-					if (objBulletPooling[i].activeSelf) {
-						objBulletPooling[i].SetActive(false);
-					}
-					else {
-						continue;
-					}
-				}
 			}
 		}
 		else {
@@ -120,26 +117,5 @@ public class GunBeam : Gun {
 	public override void Use() {
 		energy.Remove(energyCost);
 		energy.ReInitRegen();
-	}
-
-	void PoolingControl() {
-
-		for (int i = 0; i < objBulletPooling.Length; i++) {
-
-			if (!objBulletPooling[i].activeSelf) {
-
-				target.Normalize();
-
-				var bullet = objBulletPooling[i].GetComponent<BulletBeam>();
-				var beamOrigin = initPoint.position + new Vector3(target.x, target.y) * currentBeamInterval; //new Vector3(initPoint.position.x + target.x, initPoint.position.y + target.y, 0.0f) * currentBeamInterval;
-				
-				bullet.SetOrigin(beamOrigin);
-				bullet.SetDirection(target);
-				bullet.SetAttackPoint(attackPoint);
-
-				objBulletPooling[i].SetActive(true);
-				break;
-			}
-		}
 	}
 }

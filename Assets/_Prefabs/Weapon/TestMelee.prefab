@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &134948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 414648}
+  m_Layer: 12
+  m_Name: InitPoint(Left)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &144148
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,6 +46,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &169918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 443444}
+  m_Layer: 12
+  m_Name: InitPoint(Right)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &193816
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,8 +91,22 @@ Transform:
   m_Children:
   - {fileID: 429360}
   - {fileID: 440950}
+  - {fileID: 443444}
+  - {fileID: 414648}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &414648
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134948}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.225, y: -0.031, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 411630}
+  m_RootOrder: 3
 --- !u!4 &429360
 Transform:
   m_ObjectHideFlags: 1
@@ -87,6 +131,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 411630}
   m_RootOrder: 1
+--- !u!4 &443444
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.225, y: 0.031, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 411630}
+  m_RootOrder: 2
 --- !u!61 &6148258
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -119,6 +175,8 @@ MonoBehaviour:
   weaponClassify: 3
   objMeleeSlash: {fileID: 165644, guid: 50059fa4469302c47a95a43ac4fb7e6d, type: 2}
   initPoint: {fileID: 440950}
+  initPointLeft: {fileID: 414648}
+  initPointRight: {fileID: 443444}
   maxPooling: 10
   slashRate: 0.1
   staminaCost: 5

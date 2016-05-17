@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &132156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 462012}
+  m_Layer: 0
+  m_Name: InitPoint(Right)
+  m_TagString: Untagged
+  m_Icon: {fileID: 4476612413928447662, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &142838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 472444}
+  m_Layer: 0
+  m_Name: InitPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &166240
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,7 +55,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 469510}
   m_Layer: 0
-  m_Name: InitPoint
+  m_Name: InitPoint(Left)
   m_TagString: Untagged
   m_Icon: {fileID: 1638116407661442457, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -42,7 +72,7 @@ GameObject:
   - 114: {fileID: 11492110}
   - 212: {fileID: 21251746}
   - 61: {fileID: 6150542}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TestGun(Semi)
   m_TagString: Weapon
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -72,9 +102,23 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 426320}
+  - {fileID: 472444}
+  - {fileID: 462012}
   - {fileID: 469510}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &462012
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132156}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.336, y: 0.023, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 446544}
+  m_RootOrder: 2
 --- !u!4 &469510
 Transform:
   m_ObjectHideFlags: 1
@@ -82,7 +126,19 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.336, y: 0.018, z: 0}
+  m_LocalPosition: {x: 0.33599997, y: -0.023, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 446544}
+  m_RootOrder: 3
+--- !u!4 &472444
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142838}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.336, y: 0.023, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 446544}
@@ -119,7 +175,9 @@ MonoBehaviour:
   weaponClassify: 2
   shootType: 0
   objBullet: {fileID: 149968, guid: 330671da42786e04297cbf9ad3ee1c2f, type: 2}
-  initPoint: {fileID: 469510}
+  initPoint: {fileID: 472444}
+  initPointLeft: {fileID: 469510}
+  initPointRight: {fileID: 462012}
   fireRate: 0.2
   energyCost: 3
   maxObjectPooling: 30

@@ -9,6 +9,12 @@ public class Melee : Weapon {
 	Transform initPoint;
 
 	[SerializeField]
+	Transform initPointLeft;
+
+	[SerializeField]
+	Transform initPointRight;
+
+	[SerializeField]
 	int maxPooling;
 
 	[SerializeField]
@@ -82,11 +88,16 @@ public class Melee : Weapon {
 			transform.rotation = Quaternion.Euler(0.0f, 0.0f, angle);
 			
 			if (player) {
+
 				if (inputMouseVector.x > player.transform.position.x) {
+					
 					spriteRenderer.flipY = false;
+					initPoint.localPosition = initPointRight.transform.localPosition;
 				}
 				else if (inputMouseVector.x < player.transform.position.x) {
+					
 					spriteRenderer.flipY = true;
+					initPoint.localPosition = initPointLeft.transform.localPosition;
 				}
 			}
 		}

@@ -79,26 +79,18 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerStay2D(Collider2D col) {
-		if (col.gameObject.tag == "BulletBeam") {
-
-			var totalDamage = col.gameObject.GetComponent<BulletBeam>().AttackPoint;
-			
-			health.Remove(totalDamage);
-			isInHurt = true;
-		
-			if (uiDamageControl && playerItemInventory.IsItemExit("Suit")) {
-
-				var randomMagnitudeX = Random.Range(-0.3f, 0.3f);
-				var randomMagnitudeY = Random.Range(-0.3f, 0.3f);
-
-				var randomPosVector = new Vector3(randomMagnitudeX, randomMagnitudeY);
-				uiDamageControl.Show(col.gameObject.transform.position + randomPosVector, totalDamage);
-			}
-		}
-	}
-
 	public void SetInHurt(bool value) {
 		isInHurt = value;
+	}
+
+	public void ShowDamageUI(Vector3 initPos, int damage) {
+		if (uiDamageControl && playerItemInventory.IsItemExit("Suit")) {
+
+			var randomMagnitudeX = Random.Range(-0.3f, 0.3f);
+			var randomMagnitudeY = Random.Range(-0.3f, 0.3f);
+
+			var randomPosVector = new Vector3(randomMagnitudeX, randomMagnitudeY);
+			uiDamageControl.Show(initPos + randomPosVector, damage);
+		}
 	}
 }

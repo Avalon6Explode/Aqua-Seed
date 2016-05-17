@@ -15,6 +15,7 @@ TagManager:
   - DamageUI
   - MeleeSlash
   - BulletBeam
+  - Wall
   layers:
   - Default
   - TransparentFX
