@@ -30,7 +30,7 @@ TagManager:
   - Enemy
   - BG
   - Weapon
-  - 
+  - EnemySortingLayerSensor
   - 
   - 
   - 
@@ -62,14 +62,26 @@ TagManager:
   - name: Humaniod
     uniqueID: 3578685947
     locked: 0
-  - name: Bullet
-    uniqueID: 2368164929
-    locked: 0
   - name: Item
     uniqueID: 3528230943
     locked: 0
+  - name: Bullet
+    uniqueID: 2368164929
+    locked: 0
   - name: MeleeSlash
     uniqueID: 1301678511
+    locked: 0
+  - name: Gun
+    uniqueID: 4034574479
+    locked: 0
+  - name: GunBeam
+    uniqueID: 3107799781
+    locked: 0
+  - name: BulletBeam
+    uniqueID: 2197168273
+    locked: 0
+  - name: Enemy
+    uniqueID: 537029241
     locked: 0
   - name: WallUp
     uniqueID: 139228285
