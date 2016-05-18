@@ -27,10 +27,10 @@ GameObject:
   - 4: {fileID: 470644}
   - 212: {fileID: 21247788}
   - 50: {fileID: 5076544}
+  - 61: {fileID: 6131602}
   - 61: {fileID: 6192638}
   - 114: {fileID: 11440792}
   - 114: {fileID: 11449834}
-  - 61: {fileID: 6131602}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.4, y: 0.59, z: 0}
+  m_LocalPosition: {x: -0.51, y: 0.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 467608}
@@ -119,9 +119,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.009277582, y: -0.057984352}
+  m_Offset: {x: 0.019644499, y: -0.057984352}
   serializedVersion: 2
-  m_Size: {x: 0.5258728, y: 0.57054675}
+  m_Size: {x: 0.26055825, y: 0.57054675}
 --- !u!114 &11440792
 MonoBehaviour:
   m_ObjectHideFlags: 1
