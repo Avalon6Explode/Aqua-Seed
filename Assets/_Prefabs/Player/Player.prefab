@@ -202,12 +202,12 @@ BoxCollider2D:
   m_GameObject: {fileID: 101740}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 6a5017795f72c7b41b3b6208987a5601, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.008033544, y: -0.027682275}
+  m_Offset: {x: -0.0045093596, y: 0.024662755}
   serializedVersion: 2
-  m_Size: {x: 0.43882614, y: 0.40130216}
+  m_Size: {x: 0.43976527, y: 0.5271208}
 --- !u!81 &8121778
 AudioListener:
   m_ObjectHideFlags: 1

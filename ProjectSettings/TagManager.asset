@@ -56,17 +56,23 @@ TagManager:
   - name: Wall
     uniqueID: 1872800195
     locked: 0
+  - name: ItemSuit
+    uniqueID: 428748843
+    locked: 0
   - name: Humaniod
     uniqueID: 3578685947
-    locked: 0
-  - name: Bullet
-    uniqueID: 2368164929
     locked: 0
   - name: Item
     uniqueID: 3528230943
     locked: 0
+  - name: Bullet
+    uniqueID: 2368164929
+    locked: 0
   - name: MeleeSlash
     uniqueID: 1301678511
+    locked: 0
+  - name: WallUp
+    uniqueID: 139228285
     locked: 0
   - name: Top
     uniqueID: 2408524789
