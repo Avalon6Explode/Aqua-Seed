@@ -24,5 +24,8 @@ The adventure game that participate the Adventure Jam 2016 #AdvJam2016 (Avalon T
 6) Worawat Poojeevorn
 (https://www.facebook.com/profile.php?id=100005225716968&fref=ts)
 
+7) Nuttapol Chasakulpanyo
+(https://www.facebook.com/natthapol.chasakulpanyo)
+
 #Official Jam Site
 http://jams.gamejolt.io/adventurejam2016
