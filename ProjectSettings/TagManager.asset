@@ -62,11 +62,11 @@ TagManager:
   - name: Humaniod
     uniqueID: 3578685947
     locked: 0
-  - name: Item
-    uniqueID: 3528230943
-    locked: 0
   - name: Bullet
     uniqueID: 2368164929
+    locked: 0
+  - name: Item
+    uniqueID: 3528230943
     locked: 0
   - name: MeleeSlash
     uniqueID: 1301678511
