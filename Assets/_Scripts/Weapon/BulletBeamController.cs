@@ -117,7 +117,7 @@ public class BulletBeamController : MonoBehaviour {
 
 			if (hit.transform.tag == "Enemy") {
 
-				bulletReceiveID = (int)GetAppoximateID();
+				bulletReceiveID = GetAppoximateID();
 				SetEnableBulletInRange(0, bulletReceiveID, true);
 				SetEnableBulletInRange(bulletReceiveID + 1, false);
 
@@ -133,7 +133,7 @@ public class BulletBeamController : MonoBehaviour {
 			else {
 
 				if (hit.transform.tag == "Wall") {
-					wallReceiveID = (int)GetAppoximateID();
+					wallReceiveID = GetAppoximateID();
 					SetEnableBulletInRange(0, wallReceiveID, true);
 					SetEnableBulletInRange(wallReceiveID + 1, false);
 				}
@@ -219,8 +219,8 @@ public class BulletBeamController : MonoBehaviour {
 		}
 	}
 
-	float GetAppoximateID() {
+	int GetAppoximateID() {
 		var result = hit.distance / beamInterval;
-		return result;
+		return (int)result;
 	}
 }
