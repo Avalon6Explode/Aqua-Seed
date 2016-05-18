@@ -88,8 +88,10 @@ public class PlayerController : MonoBehaviour {
 
 			var obj = weaponInventory.GetItem(i);
 
-			if (obj.gameObject.tag == "Weapon" && i != 2) {
-				obj.GetComponent<Weapon>().SetAttackAble(itemInventory.IsItemExit("Suit"));
+			if (obj.gameObject.tag == "Weapon") {
+				if (i != 2) {
+					obj.GetComponent<Weapon>().SetAttackAble(itemInventory.IsItemExit("Suit"));
+				}
 				obj.GetComponent<SpriteRenderer>().sortingOrder = spriteRenderer.sortingOrder + 1;
 			}
 			else {
