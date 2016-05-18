@@ -63,17 +63,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &161208
+--- !u!1 &163840
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 434546}
-  - 58: {fileID: 5860930}
+  - 4: {fileID: 477656}
+  - 114: {fileID: 11462748}
+  - 58: {fileID: 5828040}
   m_Layer: 13
-  m_Name: EnemySortingLayerSensor
+  m_Name: SortingLayerAgent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,12 +131,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 478482}
   m_RootOrder: 2
---- !u!4 &434546
+--- !u!4 &477656
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161208}
+  m_GameObject: {fileID: 163840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -155,7 +156,7 @@ Transform:
   - {fileID: 413562}
   - {fileID: 410160}
   - {fileID: 432172}
-  - {fileID: 434546}
+  - {fileID: 477656}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!20 &2004734
@@ -209,12 +210,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &5860930
+--- !u!58 &5828040
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161208}
+  m_GameObject: {fileID: 163840}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -399,6 +400,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   maxItem: 3
+--- !u!114 &11462748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 690e4e09da28bf94189243a6c1cd0663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11480082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -462,7 +474,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -716281349
-  m_SortingOrder: 1
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 04bf52081a1438040964a776dd252ba7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

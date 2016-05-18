@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour {
 
 			if (obj.gameObject.tag == "Weapon" && i != 2) {
 				obj.GetComponent<Weapon>().SetAttackAble(itemInventory.IsItemExit("Suit"));
+				obj.GetComponent<SpriteRenderer>().sortingOrder = spriteRenderer.sortingOrder + 1;
 			}
 			else {
 				continue;
@@ -236,13 +237,17 @@ public class PlayerController : MonoBehaviour {
 			currentDropItem = obj;
 			SetEnableCollider2D(obj, true);
 
-			obj.GetComponent<SpriteRenderer>().flipY = false;
 			obj.GetComponent<Weapon>().SetAttackAble(false);
 			obj.GetComponent<Weapon>().SetHolding(false);
 			obj.transform.position -= Vector3.up * 0.15f;
 			obj.transform.eulerAngles = Vector3.zero;
 			obj.gameObject.SetActive(true);
 			
+			var objSpriteRenderer = obj.GetComponent<SpriteRenderer>();
+			objSpriteRenderer.flipY = false;
+			objSpriteRenderer.sortingLayerName = "Gun";
+			objSpriteRenderer.sortingOrder = 0;
+
 			weaponInventory.Remove(index);
 		}
 		currentHoldingItem = objEmptyItem;
@@ -269,6 +274,8 @@ public class PlayerController : MonoBehaviour {
 		currentHoldingItem = newOne;
 
 		newOne.GetComponent<Weapon>().SetHolding(true);
+		////
+		newOne.GetComponent<SpriteRenderer>().sortingLayerName = spriteRenderer.sortingLayerName;
 		newOne.SetActive(true);
 	}
 

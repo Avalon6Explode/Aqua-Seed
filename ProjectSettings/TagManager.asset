@@ -74,14 +74,8 @@ TagManager:
   - name: Gun
     uniqueID: 4034574479
     locked: 0
-  - name: GunBeam
-    uniqueID: 3107799781
-    locked: 0
   - name: BulletBeam
     uniqueID: 2197168273
-    locked: 0
-  - name: Enemy
-    uniqueID: 537029241
     locked: 0
   - name: WallUp
     uniqueID: 139228285
