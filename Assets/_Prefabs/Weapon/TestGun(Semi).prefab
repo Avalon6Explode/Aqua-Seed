@@ -182,7 +182,7 @@ MonoBehaviour:
   energyCost: 3
   maxObjectPooling: 30
   soundEffect: {fileID: 8300000, guid: a773b9e428863164e91c1b2cc3fec68d, type: 3}
-  soundVolume: 0.5
+  soundVolume: 0.4
   maxAudioSource: 10
   isLoopSound: 0
 --- !u!212 &21227652

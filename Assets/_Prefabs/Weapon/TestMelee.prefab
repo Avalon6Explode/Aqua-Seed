@@ -180,6 +180,10 @@ MonoBehaviour:
   maxPooling: 10
   slashRate: 0.1
   staminaCost: 5
+  soundEffect: {fileID: 8300000, guid: a773b9e428863164e91c1b2cc3fec68d, type: 3}
+  soundVolume: 0.3
+  maxAudioSource: 10
+  isLoopSound: 0
 --- !u!212 &21250130
 SpriteRenderer:
   m_ObjectHideFlags: 1

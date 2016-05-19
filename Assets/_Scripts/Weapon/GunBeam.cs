@@ -35,6 +35,7 @@ public class GunBeam : Gun {
 	void Awake() {
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		bulletBeamController = GetComponent<BulletBeamController>();
+		InitAudioSource();
 	}
 
 	void Start() {
@@ -77,6 +78,8 @@ public class GunBeam : Gun {
 
 		if (energy != null) {
 
+			PlaySoundEffect();
+			
 			if (isHolding && isAttackAble && IsUseAble && isPressShoot && Time.time > nextFire) {
 
 				nextFire = Time.time + fireRate;
@@ -120,6 +123,30 @@ public class GunBeam : Gun {
 	}
 
 	protected override void PlaySoundEffect() {
+		
+		if (isInUse) {
+
+			for (int i = 0; i < audioSource.Length; i++) {
+
+				var selectedSource = audioSource[i];
+
+				if (!selectedSource.isPlaying && selectedSource.clip) {
+					selectedSource.loop = true;
+					selectedSource.PlayOneShot(selectedSource.clip, soundVolume);
+				}
+			}
+		}
+		else {
+
+			for (int i = 0; i < audioSource.Length; i++) {
+
+				var selectedSource = audioSource[i];
+
+				if (selectedSource && selectedSource.isPlaying) {
+					selectedSource.loop = false;
+				}
+			}
+		}
 
 	}
 }

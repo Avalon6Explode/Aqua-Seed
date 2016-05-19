@@ -23,6 +23,19 @@ public class Melee : Weapon {
 	[SerializeField]
 	int staminaCost;
 
+	[SerializeField]
+	AudioClip soundEffect;
+
+	[SerializeField]
+	[Range(0.0f, 1.0f)]
+	float soundVolume;
+
+	[SerializeField]
+	int maxAudioSource;
+
+	[SerializeField]
+	bool isLoopSound;
+
 
 	GameObject player;
 	GameObject[] objMeleeSlashPooling;
@@ -38,6 +51,8 @@ public class Melee : Weapon {
 	Vector3 inputMouseVector;
 	Vector3 toPos;
 	float angle;
+
+	AudioSource[] audioSource;
 
 
 	public int StaminaCost { get { return staminaCost; } }
@@ -66,6 +81,8 @@ public class Melee : Weapon {
 			objMeleeSlashPooling[i] = Instantiate(objMeleeSlash) as GameObject;
 			objMeleeSlashPooling[i].SetActive(false);
 		}
+
+		InitAudioSource();
 	}
 
 	void Start() {
@@ -106,6 +123,7 @@ public class Melee : Weapon {
 			if (isAttackAble && IsUseAble && isPressSlash && Time.time > nextSlash) {
 				nextSlash = Time.time + slashRate;
 				Use();
+				PlaySoundEffect();
 				PoolingControl();
 			}
 		}
@@ -143,6 +161,37 @@ public class Melee : Weapon {
 
 				break;
 			}
+		}
+	}
+
+	void InitAudioSource() {
+		
+		for (int i = 0; i < maxAudioSource; i++) {
+			gameObject.AddComponent<AudioSource>();
+		}		
+
+		audioSource = GetComponents<AudioSource>();
+		
+		for (int i = 0; i < audioSource.Length; i++) {
+			audioSource[i].clip = soundEffect;
+			audioSource[i].loop = isLoopSound;
+			audioSource[i].playOnAwake = false;
+		}
+	}
+
+	void PlaySoundEffect() {
+
+		AudioSource selectedSource = null;
+
+		for (int i = 0; i < audioSource.Length; i++) {
+			if (!audioSource[i].isPlaying) {
+				selectedSource = audioSource[i];
+				break;
+			}
+		}
+
+		if (selectedSource) {
+			selectedSource.PlayOneShot(selectedSource.clip ,soundVolume);
 		}
 	}
 }

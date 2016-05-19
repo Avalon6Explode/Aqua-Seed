@@ -60,7 +60,7 @@ public class Gun : Weapon {
 	protected Vector3 toPos;
 	protected float angle;
 
-	AudioSource[] audioSource;
+	protected AudioSource[] audioSource;
 	
 
 	public int EnergyCost { get { return energyCost; } }
@@ -87,17 +87,7 @@ public class Gun : Weapon {
 			objBulletPooling[i].SetActive(false);
 		}
 
-		for (int i = 0; i < maxAudioSource; i++) {
-			gameObject.AddComponent<AudioSource>();
-		}		
-
-		audioSource = GetComponents<AudioSource>();
-		
-		for (int i = 0; i < audioSource.Length; i++) {
-			audioSource[i].clip = soundEffect;
-			audioSource[i].loop = isLoopSound;
-			audioSource[i].playOnAwake = false;
-		}
+		InitAudioSource();
 	}
 
 	void Start() {
@@ -177,6 +167,21 @@ public class Gun : Weapon {
 				
 				break;
 			}
+		}
+	}
+
+	protected void InitAudioSource() {
+		
+		for (int i = 0; i < maxAudioSource; i++) {
+			gameObject.AddComponent<AudioSource>();
+		}		
+
+		audioSource = GetComponents<AudioSource>();
+		
+		for (int i = 0; i < audioSource.Length; i++) {
+			audioSource[i].clip = soundEffect;
+			audioSource[i].loop = isLoopSound;
+			audioSource[i].playOnAwake = false;
 		}
 	}
 
