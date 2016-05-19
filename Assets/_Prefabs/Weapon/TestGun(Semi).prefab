@@ -181,10 +181,6 @@ MonoBehaviour:
   fireRate: 0.2
   energyCost: 3
   maxObjectPooling: 30
-  soundEffect: {fileID: 8300000, guid: a773b9e428863164e91c1b2cc3fec68d, type: 3}
-  soundVolume: 0.4
-  maxAudioSource: 10
-  isLoopSound: 0
 --- !u!212 &21227652
 SpriteRenderer:
   m_ObjectHideFlags: 1

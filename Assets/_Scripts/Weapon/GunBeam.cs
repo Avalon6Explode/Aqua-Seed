@@ -15,6 +15,7 @@ public class GunBeam : Gun {
 	bool isReadyToGiveDamage;
 
 	BulletBeamController bulletBeamController;
+	BulletAudioPlayer beamAudioPlayer;
 
 
 	public bool IsInUse { get { return isInUse; } }
@@ -35,7 +36,6 @@ public class GunBeam : Gun {
 	void Awake() {
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		bulletBeamController = GetComponent<BulletBeamController>();
-		InitAudioSource();
 	}
 
 	void Start() {
@@ -77,9 +77,9 @@ public class GunBeam : Gun {
 		}
 
 		if (energy != null) {
-
-			PlaySoundEffect();
 			
+			PlayFireSoundEffect();
+
 			if (isHolding && isAttackAble && IsUseAble && isPressShoot && Time.time > nextFire) {
 
 				nextFire = Time.time + fireRate;
@@ -115,6 +115,20 @@ public class GunBeam : Gun {
 				player = GameObject.FindGameObjectWithTag("SceneManager").gameObject.GetComponent<SceneManager>().Player;
 			}
 		}
+
+		if (beamAudioPlayer == null) {
+
+			if (player) {
+
+				var parentName = "EffectAudioPlayer";
+				var childName = "Bullet(Beam)";
+
+				beamAudioPlayer = player.transform.Find(parentName).Find(childName).gameObject.GetComponent<BulletAudioPlayer>();
+			}
+			else {
+				player = GameObject.FindGameObjectWithTag("SceneManager").gameObject.GetComponent<SceneManager>().Player;
+			}
+		}
 	}
 
 	public override void Use() {
@@ -122,31 +136,9 @@ public class GunBeam : Gun {
 		energy.ReInitRegen();
 	}
 
-	protected override void PlaySoundEffect() {
-		
-		if (isInUse) {
-
-			for (int i = 0; i < audioSource.Length; i++) {
-
-				var selectedSource = audioSource[i];
-
-				if (!selectedSource.isPlaying && selectedSource.clip) {
-					selectedSource.loop = true;
-					selectedSource.PlayOneShot(selectedSource.clip, soundVolume);
-				}
-			}
+	void PlayFireSoundEffect() {
+		if (beamAudioPlayer && isInUse) {
+			beamAudioPlayer.PlaySoundEffect();
 		}
-		else {
-
-			for (int i = 0; i < audioSource.Length; i++) {
-
-				var selectedSource = audioSource[i];
-
-				if (selectedSource && selectedSource.isPlaying) {
-					selectedSource.loop = false;
-				}
-			}
-		}
-
 	}
 }

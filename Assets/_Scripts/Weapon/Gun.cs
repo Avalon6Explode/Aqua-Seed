@@ -33,19 +33,6 @@ public class Gun : Weapon {
 	[SerializeField]
 	protected int maxObjectPooling;
 
-	[SerializeField]
-	protected AudioClip soundEffect;
-
-	[SerializeField]
-	[Range(0.0f, 1.0f)]
-	protected float soundVolume;
-
-	[SerializeField]
-	protected int maxAudioSource;
-
-	[SerializeField]
-	protected bool isLoopSound;
-
 
 	protected GameObject[] objBulletPooling;
 	protected Vector2 target;
@@ -60,7 +47,7 @@ public class Gun : Weapon {
 	protected Vector3 toPos;
 	protected float angle;
 
-	protected AudioSource[] audioSource;
+	BulletAudioPlayer bulletAudioPlayer;
 	
 
 	public int EnergyCost { get { return energyCost; } }
@@ -86,8 +73,6 @@ public class Gun : Weapon {
 			objBulletPooling[i] = Instantiate(objBullet) as GameObject;
 			objBulletPooling[i].SetActive(false);
 		}
-
-		InitAudioSource();
 	}
 
 	void Start() {
@@ -130,13 +115,38 @@ public class Gun : Weapon {
 			if (isHolding && isAttackAble && IsUseAble && isPressShoot && Time.time > nextFire) {
 				nextFire = Time.time + fireRate;
 				Use();
-				PlaySoundEffect();
+				PlayFireSoundEffect();
 				PoolingControl();
 			}
 		}
 		else {
 			if (player) {
 				energy = player.GetComponent<RegenEnergy>();
+			}
+			else {
+				player = GameObject.FindGameObjectWithTag("SceneManager").gameObject.GetComponent<SceneManager>().Player;
+			}
+		}
+
+		if (bulletAudioPlayer == null) {
+
+			if (player) {
+
+				var parentName = "EffectAudioPlayer";
+				var childName = string.Empty;
+
+				switch (shootType) {
+
+					case ShootType.SEMI :
+						childName = "Bullet(Semi)";
+					break;
+
+					case ShootType.AUTOMATIC :
+						childName = "Bullet(Auto)";
+					break;
+
+				}
+				bulletAudioPlayer = player.transform.Find(parentName).Find(childName).gameObject.GetComponent<BulletAudioPlayer>();
 			}
 			else {
 				player = GameObject.FindGameObjectWithTag("SceneManager").gameObject.GetComponent<SceneManager>().Player;
@@ -170,34 +180,9 @@ public class Gun : Weapon {
 		}
 	}
 
-	protected void InitAudioSource() {
-		
-		for (int i = 0; i < maxAudioSource; i++) {
-			gameObject.AddComponent<AudioSource>();
-		}		
-
-		audioSource = GetComponents<AudioSource>();
-		
-		for (int i = 0; i < audioSource.Length; i++) {
-			audioSource[i].clip = soundEffect;
-			audioSource[i].loop = isLoopSound;
-			audioSource[i].playOnAwake = false;
-		}
-	}
-
-	protected virtual void PlaySoundEffect() {
-
-		AudioSource selectedSource = null;
-
-		for (int i = 0; i < audioSource.Length; i++) {
-			if (!audioSource[i].isPlaying) {
-				selectedSource = audioSource[i];
-				break;
-			}
-		}
-
-		if (selectedSource) {
-			selectedSource.PlayOneShot(selectedSource.clip ,soundVolume);
+	void PlayFireSoundEffect() {
+		if (bulletAudioPlayer) {
+			bulletAudioPlayer.PlaySoundEffect();
 		}
 	}
 }

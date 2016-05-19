@@ -210,10 +210,6 @@ MonoBehaviour:
   fireRate: 0
   energyCost: 2
   maxObjectPooling: 100
-  soundEffect: {fileID: 8300000, guid: a773b9e428863164e91c1b2cc3fec68d, type: 3}
-  soundVolume: 0.25
-  maxAudioSource: 1
-  isLoopSound: 1
   energyLostRate: 0.06
   backWardForce: 7
 --- !u!114 &11476106

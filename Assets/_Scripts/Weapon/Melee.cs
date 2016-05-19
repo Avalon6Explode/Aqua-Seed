@@ -23,19 +23,6 @@ public class Melee : Weapon {
 	[SerializeField]
 	int staminaCost;
 
-	[SerializeField]
-	AudioClip soundEffect;
-
-	[SerializeField]
-	[Range(0.0f, 1.0f)]
-	float soundVolume;
-
-	[SerializeField]
-	int maxAudioSource;
-
-	[SerializeField]
-	bool isLoopSound;
-
 
 	GameObject player;
 	GameObject[] objMeleeSlashPooling;
@@ -52,7 +39,7 @@ public class Melee : Weapon {
 	Vector3 toPos;
 	float angle;
 
-	AudioSource[] audioSource;
+	BulletAudioPlayer slashAudioPlayer;
 
 
 	public int StaminaCost { get { return staminaCost; } }
@@ -81,8 +68,6 @@ public class Melee : Weapon {
 			objMeleeSlashPooling[i] = Instantiate(objMeleeSlash) as GameObject;
 			objMeleeSlashPooling[i].SetActive(false);
 		}
-
-		InitAudioSource();
 	}
 
 	void Start() {
@@ -123,7 +108,7 @@ public class Melee : Weapon {
 			if (isAttackAble && IsUseAble && isPressSlash && Time.time > nextSlash) {
 				nextSlash = Time.time + slashRate;
 				Use();
-				PlaySoundEffect();
+				PlaySlashEffect();
 				PoolingControl();
 			}
 		}
@@ -131,6 +116,20 @@ public class Melee : Weapon {
 			if (player) {
 				stamina = player.GetComponent<RegenStamina>();
 			} 
+			else {
+				player = GameObject.FindGameObjectWithTag("SceneManager").gameObject.GetComponent<SceneManager>().Player;
+			}
+		}
+
+		if (slashAudioPlayer == null) {
+
+			if (player) {
+
+				var parentName = "EffectAudioPlayer";
+				var childName = "MeleeSlash";
+
+				slashAudioPlayer = player.transform.Find(parentName).Find(childName).gameObject.GetComponent<BulletAudioPlayer>();
+			}
 			else {
 				player = GameObject.FindGameObjectWithTag("SceneManager").gameObject.GetComponent<SceneManager>().Player;
 			}
@@ -164,34 +163,9 @@ public class Melee : Weapon {
 		}
 	}
 
-	void InitAudioSource() {
-		
-		for (int i = 0; i < maxAudioSource; i++) {
-			gameObject.AddComponent<AudioSource>();
-		}		
-
-		audioSource = GetComponents<AudioSource>();
-		
-		for (int i = 0; i < audioSource.Length; i++) {
-			audioSource[i].clip = soundEffect;
-			audioSource[i].loop = isLoopSound;
-			audioSource[i].playOnAwake = false;
-		}
-	}
-
-	void PlaySoundEffect() {
-
-		AudioSource selectedSource = null;
-
-		for (int i = 0; i < audioSource.Length; i++) {
-			if (!audioSource[i].isPlaying) {
-				selectedSource = audioSource[i];
-				break;
-			}
-		}
-
-		if (selectedSource) {
-			selectedSource.PlayOneShot(selectedSource.clip ,soundVolume);
+	void PlaySlashEffect() {
+		if (slashAudioPlayer) {
+			slashAudioPlayer.PlaySoundEffect();
 		}
 	}
 }
