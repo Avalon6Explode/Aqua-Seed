@@ -47,7 +47,7 @@ public class Gun : Weapon {
 	protected Vector3 toPos;
 	protected float angle;
 
-	BulletAudioPlayer bulletAudioPlayer;
+	AudioPlayer bulletAudioPlayer;
 	
 
 	public int EnergyCost { get { return energyCost; } }
@@ -146,7 +146,7 @@ public class Gun : Weapon {
 					break;
 
 				}
-				bulletAudioPlayer = player.transform.Find(parentName).Find(childName).gameObject.GetComponent<BulletAudioPlayer>();
+				bulletAudioPlayer = player.transform.Find(parentName).Find(childName).gameObject.GetComponent<AudioPlayer>();
 			}
 			else {
 				player = GameObject.FindGameObjectWithTag("SceneManager").gameObject.GetComponent<SceneManager>().Player;
@@ -182,7 +182,7 @@ public class Gun : Weapon {
 
 	void PlayFireSoundEffect() {
 		if (bulletAudioPlayer) {
-			bulletAudioPlayer.PlaySoundEffect();
+			bulletAudioPlayer.Play();
 		}
 	}
 }

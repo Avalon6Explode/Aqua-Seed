@@ -39,7 +39,7 @@ public class Melee : Weapon {
 	Vector3 toPos;
 	float angle;
 
-	BulletAudioPlayer slashAudioPlayer;
+	AudioPlayer slashAudioPlayer;
 
 
 	public int StaminaCost { get { return staminaCost; } }
@@ -128,7 +128,7 @@ public class Melee : Weapon {
 				var parentName = "EffectAudioPlayer";
 				var childName = "MeleeSlash";
 
-				slashAudioPlayer = player.transform.Find(parentName).Find(childName).gameObject.GetComponent<BulletAudioPlayer>();
+				slashAudioPlayer = player.transform.Find(parentName).Find(childName).gameObject.GetComponent<AudioPlayer>();
 			}
 			else {
 				player = GameObject.FindGameObjectWithTag("SceneManager").gameObject.GetComponent<SceneManager>().Player;
@@ -165,7 +165,7 @@ public class Melee : Weapon {
 
 	void PlaySlashEffect() {
 		if (slashAudioPlayer) {
-			slashAudioPlayer.PlaySoundEffect();
+			slashAudioPlayer.Play();
 		}
 	}
 }

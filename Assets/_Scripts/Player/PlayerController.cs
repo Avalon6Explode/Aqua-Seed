@@ -276,7 +276,7 @@ public class PlayerController : MonoBehaviour {
 		currentHoldingItem = newOne;
 
 		newOne.GetComponent<Weapon>().SetHolding(true);
-		////
+
 		newOne.GetComponent<SpriteRenderer>().sortingLayerName = spriteRenderer.sortingLayerName;
 		newOne.SetActive(true);
 	}

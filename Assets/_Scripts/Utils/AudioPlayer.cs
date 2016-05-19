@@ -1,29 +1,29 @@
 ﻿using UnityEngine;
 
-public class BulletAudioPlayer : MonoBehaviour {
+public class AudioPlayer : MonoBehaviour {
 
 	[SerializeField]
-	AudioClip soundEffect;
+	protected AudioClip soundEffect;
 	
 	[SerializeField]
 	[Range(0.0f, 1.0f)]
 	protected float soundVolume;
 
 	[SerializeField]
-	int maxAudioSource;
+	protected int maxAudioSource;
 
 	[SerializeField]
 	protected bool isLoopSound;
 
 
-	AudioSource[] audioSource;
+	protected AudioSource[] audioSource;
 
 
-	void Awake() {
+	protected void Awake() {
 		InitAudioSource();
 	}
 
-	void InitAudioSource() {
+	protected void InitAudioSource() {
 		
 		for (int i = 0; i < maxAudioSource; i++) {
 			gameObject.AddComponent<AudioSource>();
@@ -38,7 +38,7 @@ public class BulletAudioPlayer : MonoBehaviour {
 		}
 	}
 
-	public void PlaySoundEffect() {
+	public virtual void Play() {
 
 		AudioSource selectedSource = null;
 

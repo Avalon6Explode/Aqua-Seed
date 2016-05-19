@@ -15,7 +15,7 @@ public class GunBeam : Gun {
 	bool isReadyToGiveDamage;
 
 	BulletBeamController bulletBeamController;
-	BulletAudioPlayer beamAudioPlayer;
+	AudioPlayer beamAudioPlayer;
 
 
 	public bool IsInUse { get { return isInUse; } }
@@ -123,7 +123,7 @@ public class GunBeam : Gun {
 				var parentName = "EffectAudioPlayer";
 				var childName = "Bullet(Beam)";
 
-				beamAudioPlayer = player.transform.Find(parentName).Find(childName).gameObject.GetComponent<BulletAudioPlayer>();
+				beamAudioPlayer = player.transform.Find(parentName).Find(childName).gameObject.GetComponent<AudioPlayer>();
 			}
 			else {
 				player = GameObject.FindGameObjectWithTag("SceneManager").gameObject.GetComponent<SceneManager>().Player;
@@ -138,7 +138,7 @@ public class GunBeam : Gun {
 
 	void PlayFireSoundEffect() {
 		if (beamAudioPlayer && isInUse) {
-			beamAudioPlayer.PlaySoundEffect();
+			beamAudioPlayer.Play();
 		}
 	}
 }
