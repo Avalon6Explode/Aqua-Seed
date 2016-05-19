@@ -118,4 +118,8 @@ public class GunBeam : Gun {
 		energy.Remove(energyCost);
 		energy.ReInitRegen();
 	}
+
+	protected override void PlaySoundEffect() {
+
+	}
 }

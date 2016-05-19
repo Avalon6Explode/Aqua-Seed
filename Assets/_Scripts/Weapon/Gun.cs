@@ -33,6 +33,19 @@ public class Gun : Weapon {
 	[SerializeField]
 	protected int maxObjectPooling;
 
+	[SerializeField]
+	protected AudioClip soundEffect;
+
+	[SerializeField]
+	[Range(0.0f, 1.0f)]
+	protected float soundVolume;
+
+	[SerializeField]
+	protected int maxAudioSource;
+
+	[SerializeField]
+	protected bool isLoopSound;
+
 
 	protected GameObject[] objBulletPooling;
 	protected Vector2 target;
@@ -46,6 +59,8 @@ public class Gun : Weapon {
 	protected Vector3 inputMouseVector;
 	protected Vector3 toPos;
 	protected float angle;
+
+	AudioSource[] audioSource;
 	
 
 	public int EnergyCost { get { return energyCost; } }
@@ -70,6 +85,18 @@ public class Gun : Weapon {
 		for (int i = 0; i < maxObjectPooling; i++) {
 			objBulletPooling[i] = Instantiate(objBullet) as GameObject;
 			objBulletPooling[i].SetActive(false);
+		}
+
+		for (int i = 0; i < maxAudioSource; i++) {
+			gameObject.AddComponent<AudioSource>();
+		}		
+
+		audioSource = GetComponents<AudioSource>();
+		
+		for (int i = 0; i < audioSource.Length; i++) {
+			audioSource[i].clip = soundEffect;
+			audioSource[i].loop = isLoopSound;
+			audioSource[i].playOnAwake = false;
 		}
 	}
 
@@ -113,6 +140,7 @@ public class Gun : Weapon {
 			if (isHolding && isAttackAble && IsUseAble && isPressShoot && Time.time > nextFire) {
 				nextFire = Time.time + fireRate;
 				Use();
+				PlaySoundEffect();
 				PoolingControl();
 			}
 		}
@@ -149,6 +177,22 @@ public class Gun : Weapon {
 				
 				break;
 			}
+		}
+	}
+
+	protected virtual void PlaySoundEffect() {
+
+		AudioSource selectedSource = null;
+
+		for (int i = 0; i < audioSource.Length; i++) {
+			if (!audioSource[i].isPlaying) {
+				selectedSource = audioSource[i];
+				break;
+			}
+		}
+
+		if (selectedSource) {
+			selectedSource.PlayOneShot(selectedSource.clip ,soundVolume);
 		}
 	}
 }
