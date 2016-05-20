@@ -22,12 +22,17 @@ public class AudioPlayer : MonoBehaviour {
 	[SerializeField]
 	protected bool isLoopSound;
 
+	[SerializeField]
+	protected bool isMute;
+
 
 	protected int currentSoundIndex;
+	protected float currentSoundVolume;
 	protected AudioSource[] audioSource;
 
 
 	public AudioClip[] Sounds { get { return sounds; } }
+	public bool IsMute { get { return isMute; } }
 	
 
 	public AudioPlayer() {
@@ -40,6 +45,8 @@ public class AudioPlayer : MonoBehaviour {
 
 	protected void InitAudioSource() {
 		
+		currentSoundVolume = soundVolume;
+
 		for (int i = 0; i < maxAudioSource; i++) {
 			gameObject.AddComponent<AudioSource>();
 		}		
@@ -50,7 +57,7 @@ public class AudioPlayer : MonoBehaviour {
 			audioSource[i].clip = sounds[0];
 			audioSource[i].loop = isLoopSound;
 			audioSource[i].playOnAwake = isPlayOnAwake;
-			audioSource[i].volume = soundVolume;
+			audioSource[i].volume = currentSoundVolume;
 		}
 	}
 
@@ -68,7 +75,7 @@ public class AudioPlayer : MonoBehaviour {
 		var selectedSource = GetAvailableSource();
 
 		if (selectedSource) {
-			selectedSource.PlayOneShot(selectedSource.clip, soundVolume);
+			selectedSource.PlayOneShot(selectedSource.clip, currentSoundVolume);
 		}
 	}
 
@@ -122,7 +129,9 @@ public class AudioPlayer : MonoBehaviour {
 	}
 
 	public void SetStartDelay(ulong value) {
+
 		startDelay = value;
+	
 	}
 
 	public AudioSource GetAvailableSource() {
@@ -137,5 +146,33 @@ public class AudioPlayer : MonoBehaviour {
 		}
 
 		return selectedSource;
+	}
+
+	public void Mute() {
+
+		currentSoundVolume = 0.0f;
+		
+		for (int i = 0; i < audioSource.Length; i++) {
+
+			audioSource[i].volume = currentSoundVolume;
+	
+		}
+
+		isMute = true;
+
+	}
+
+	public void UnMute() {
+
+		currentSoundVolume = soundVolume;
+
+		for (int i = 0; i < audioSource.Length; i++) {
+
+			audioSource[i].volume = currentSoundVolume;
+	
+		}
+
+		isMute = false;
+
 	}
 }
