@@ -23,7 +23,9 @@ public class AIIdleState : AIState {
 	}
 
 	public override void Behave() {
+
 		AnimationControl();
+	
 	}
 
 	void AnimationControl() {
@@ -33,4 +35,5 @@ public class AIIdleState : AIState {
 		anim.SetBool("Attack", false);
 	
 	}
+
 }

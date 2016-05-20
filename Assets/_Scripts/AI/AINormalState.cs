@@ -96,9 +96,7 @@ public class AINormalState : AIState {
 
 		if (isInUse) {
 
-			MovementControl();
-			UpdateRayOrigin();
-			UpdateRaycastHit();
+			MoveBehave();
 
 		}
 
@@ -119,7 +117,16 @@ public class AINormalState : AIState {
 		BeginMoving();
 		PickDirection();
 		ChangeMoveDirectionControl();
+		UpdateAnimationState();
 		AnimationControl();
+
+	}
+
+	void MoveBehave() {
+
+		MovementControl();
+		UpdateRayOrigin();
+		UpdateRaycastHit();
 
 	}
 
@@ -222,10 +229,8 @@ public class AINormalState : AIState {
 
 		}
 
-		isWalking = (currentMoveState != MoveState.NONE);
-		isFacingRight = (currentMoveState == MoveState.RIGHT);
-
 		rigid.AddForce(moveDirection * moveSpeed, ForceMode2D.Force);
+	
 	}
 
 
@@ -318,6 +323,13 @@ public class AINormalState : AIState {
 
 	}
 
+	void UpdateAnimationState() {
+
+		isWalking = (currentMoveState != MoveState.NONE);
+		isFacingRight = (currentMoveState == MoveState.RIGHT);
+
+	}
+
 	void UpdateRayOrigin() {
 
 		rayUp.origin = transform.position;
@@ -342,4 +354,5 @@ public class AINormalState : AIState {
 		anim.SetBool("FacingRight", isFacingRight);
 
 	}
+	
 }

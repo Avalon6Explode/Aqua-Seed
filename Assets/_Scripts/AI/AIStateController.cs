@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 
-[RequireComponent(typeof (Animator))]
 [RequireComponent(typeof (CircleCollider2D))]
 public class AIStateController : MonoBehaviour {
 
