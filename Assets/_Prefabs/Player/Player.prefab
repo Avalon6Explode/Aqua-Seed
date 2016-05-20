@@ -639,7 +639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
-  regenRate: 0.2
+  regenRate: 0.3
   regenDelay: 3
   regenPoint: 2
 --- !u!114 &11490750

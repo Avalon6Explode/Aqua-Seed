@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Gun
   objIconPickUp: {fileID: 147500}
-  attackPoint: 12
+  attackPoint: 22
   weaponType: 1
   weaponClassify: 1
   shootType: 1

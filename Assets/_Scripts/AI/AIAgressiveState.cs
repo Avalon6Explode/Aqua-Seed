@@ -192,7 +192,6 @@ public class AIAgressiveState : AIState {
 
 				}
 
-			
 			}
 
 		}
