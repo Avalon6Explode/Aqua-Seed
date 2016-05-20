@@ -168,6 +168,7 @@ GameObject:
   - 114: {fileID: 11470622}
   - 114: {fileID: 11407162}
   - 114: {fileID: 11455176}
+  - 114: {fileID: 11466306}
   m_Layer: 5
   m_Name: GameOverUI
   m_TagString: GameOverUI
@@ -692,6 +693,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Control
+--- !u!114 &11466306
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 735e18bb18cc20a4a8d27e9cfed438a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &11470622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -866,7 +883,7 @@ Canvas:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154832}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_RenderMode: 0
   m_Camera: {fileID: 0}

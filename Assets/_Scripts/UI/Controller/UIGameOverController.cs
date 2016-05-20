@@ -9,6 +9,7 @@ public class UIGameOverController : MonoBehaviour {
 
 	Canvas ui;
 	Health playerHealth;
+	MuteSound muteSound;
 
 	bool isShow;
 	bool enableSwith;
@@ -17,6 +18,7 @@ public class UIGameOverController : MonoBehaviour {
 	void Initialize() {
 
 		ui = GetComponent<Canvas>();
+		muteSound = GetComponent<MuteSound>();
 		playerHealth = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().Player.GetComponent<Health>();
 
 	}
@@ -51,6 +53,17 @@ public class UIGameOverController : MonoBehaviour {
 		}
 
 		SetEnableUI(isShow);
+
+		if (isShow) {
+
+			muteSound.Mute();
+
+		}
+		else {
+
+			muteSound.UnMute();
+
+		}
 
 	}
 
