@@ -165,7 +165,7 @@ public class Melee : Weapon {
 
 	void PlaySlashEffect() {
 		if (slashAudioPlayer) {
-			slashAudioPlayer.Play();
+			slashAudioPlayer.PlayOnce();
 		}
 	}
 }

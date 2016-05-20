@@ -182,7 +182,7 @@ public class Gun : Weapon {
 
 	void PlayFireSoundEffect() {
 		if (bulletAudioPlayer) {
-			bulletAudioPlayer.Play();
+			bulletAudioPlayer.PlayOnce();
 		}
 	}
 }

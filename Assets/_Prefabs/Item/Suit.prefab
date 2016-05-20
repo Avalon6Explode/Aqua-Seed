@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21290042}
   - 61: {fileID: 6162568}
   - 114: {fileID: 11403392}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suit
   m_TagString: Item
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}

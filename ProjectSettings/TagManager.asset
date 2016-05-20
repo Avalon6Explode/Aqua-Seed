@@ -16,6 +16,7 @@ TagManager:
   - MeleeSlash
   - BulletBeam
   - Wall
+  - SceneAudioPlayer
   layers:
   - Default
   - TransparentFX
@@ -31,7 +32,7 @@ TagManager:
   - BG
   - Weapon
   - EnemySortingLayerSensor
-  - 
+  - EnemyEyesSensor
   - 
   - 
   - 

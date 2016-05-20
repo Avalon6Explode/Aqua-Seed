@@ -20,6 +20,9 @@ public class Enemy : MonoBehaviour {
 	float nextNormalSelf;
 
 
+	public bool IsInHurt { get { return isInHurt; } } 
+
+
 	public Enemy() {
 		isInHurt = false;
 		isInitCountdown = false;

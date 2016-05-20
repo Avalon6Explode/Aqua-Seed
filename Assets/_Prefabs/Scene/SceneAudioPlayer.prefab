@@ -8,9 +8,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 447160}
+  - 114: {fileID: 11486552}
+  - 114: {fileID: 11408122}
   m_Layer: 0
   m_Name: SceneAudioPlayer
-  m_TagString: Untagged
+  m_TagString: SceneAudioPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,6 +29,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11408122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8aa507ef7f3cc44ebe0392c7ad490d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstSong: 0
+  nextSong: 0
+  previousSong: 0
+  lastSong: 0
+--- !u!114 &11486552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212f971081cb82b4b89c53d205ed6d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAudioSource: 1
+  soundVolume: 0.2
+  startDelay: 0
+  sounds:
+  - {fileID: 8300000, guid: 1e957b7c9f10429448c83eaff40f1de3, type: 3}
+  - {fileID: 8300000, guid: ff307ab924643b4459d4d075e9bd6e1e, type: 3}
+  isPlayOnAwake: 1
+  isLoopSound: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

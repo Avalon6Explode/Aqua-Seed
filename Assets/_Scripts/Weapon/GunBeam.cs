@@ -138,7 +138,7 @@ public class GunBeam : Gun {
 
 	void PlayFireSoundEffect() {
 		if (beamAudioPlayer && isInUse) {
-			beamAudioPlayer.Play();
+			beamAudioPlayer.PlayOnce();
 		}
 	}
 }

@@ -438,9 +438,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212f971081cb82b4b89c53d205ed6d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: a773b9e428863164e91c1b2cc3fec68d, type: 3}
-  soundVolume: 0.3
   maxAudioSource: 10
+  soundVolume: 0.3
+  startDelay: 0
+  sounds:
+  - {fileID: 8300000, guid: a773b9e428863164e91c1b2cc3fec68d, type: 3}
+  isPlayOnAwake: 0
   isLoopSound: 0
 --- !u!114 &11406664
 MonoBehaviour:
@@ -537,9 +540,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212f971081cb82b4b89c53d205ed6d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: a773b9e428863164e91c1b2cc3fec68d, type: 3}
-  soundVolume: 0.3
   maxAudioSource: 10
+  soundVolume: 0.3
+  startDelay: 0
+  sounds:
+  - {fileID: 8300000, guid: a773b9e428863164e91c1b2cc3fec68d, type: 3}
+  isPlayOnAwake: 0
   isLoopSound: 0
 --- !u!114 &11452154
 MonoBehaviour:
@@ -596,9 +602,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212f971081cb82b4b89c53d205ed6d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: a773b9e428863164e91c1b2cc3fec68d, type: 3}
-  soundVolume: 0.3
   maxAudioSource: 10
+  soundVolume: 0.3
+  startDelay: 0
+  sounds:
+  - {fileID: 8300000, guid: a773b9e428863164e91c1b2cc3fec68d, type: 3}
+  isPlayOnAwake: 0
   isLoopSound: 0
 --- !u!114 &11480082
 MonoBehaviour:
@@ -642,10 +651,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212f971081cb82b4b89c53d205ed6d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: a773b9e428863164e91c1b2cc3fec68d, type: 3}
-  soundVolume: 0.3
   maxAudioSource: 1
-  isLoopSound: 1
+  soundVolume: 0.3
+  startDelay: 0
+  sounds:
+  - {fileID: 8300000, guid: a773b9e428863164e91c1b2cc3fec68d, type: 3}
+  isPlayOnAwake: 0
+  isLoopSound: 0
 --- !u!124 &12463160
 Behaviour:
   m_ObjectHideFlags: 1
