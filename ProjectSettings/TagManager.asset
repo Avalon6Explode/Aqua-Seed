@@ -17,6 +17,8 @@ TagManager:
   - BulletBeam
   - Wall
   - SceneAudioPlayer
+  - GameOverUI
+  - Spawner
   layers:
   - Default
   - TransparentFX

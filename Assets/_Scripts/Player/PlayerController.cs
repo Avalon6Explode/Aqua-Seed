@@ -20,7 +20,14 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	Transform weaponTransformLeft;
 
+	[SerializeField]
+	float normalSelfDelay;
 
+	[SerializeField]
+	Color hurtColor;
+
+
+	float nextNormalSelf;
 	float inputX;
 	float inputY;
 
@@ -31,6 +38,8 @@ public class PlayerController : MonoBehaviour {
 	Animator anim;
 	RegenHealth health;
 
+	bool isInitCountdown;
+	bool isInHurt;
 	bool isPressPickUp;
 	
 	GameObject currentHoldingItem;
@@ -38,6 +47,8 @@ public class PlayerController : MonoBehaviour {
 
 	int currentHoldingItemIndex;
 	int prevHoldingItemIndex;
+
+	Rigidbody2D rigid;
 
 
 	public GameObject CurrentHoldingItem { get { return currentHoldingItem; } }
@@ -48,25 +59,39 @@ public class PlayerController : MonoBehaviour {
 
 
 	public PlayerController() {
+
 		currentHoldingItemIndex = 0;
 		prevHoldingItemIndex = 0;
+	
 	}
 
-	void Awake() {
+	void Initialize() {
+
 		currentHoldingItem = objEmptyItem;
 		currentDropItem = null;
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		anim = GetComponent<Animator>();
 		health = GetComponent<RegenHealth>();
+		rigid = GetComponent<Rigidbody2D>();
+
+	}
+
+	void Awake() {
+
+		Initialize();
+
 	}
 
 	void Start() {
+		
 		var melee = Instantiate(objMelee) as GameObject;
 		PickUp(melee, 2);
 		HoldWeapon(2);
+	
 	}
 
 	void Update() {
+
 		inputX = Input.GetAxisRaw("Horizontal");
 		inputY = Input.GetAxisRaw("Vertical");
 		isPressPickUp = Input.GetButtonDown("PickUp");
@@ -133,6 +158,15 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
 		}
+		else {
+
+			DropAllWeapon();
+			rigid.velocity = Vector3.zero;
+
+		}
+
+		HurtEffectControl();
+
 	}
 
 	void OnTriggerStay2D(Collider2D col) {
@@ -312,10 +346,55 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void SetEnableCollider2D(GameObject item, bool value) {
-		var cols = item.gameObject.GetComponents<Collider2D>();
-		for (int i = 0; i < cols.Length; i++) {
-			cols[i].enabled = value;
+	public void DropAllWeapon() {
+
+		for (int i = 0; i < weaponInventory.Length; i++) {
+
+			DropWeapon(i);
+
 		}
+
 	}
+
+	public void SetInHurt(bool value) {
+
+		isInHurt = value;
+
+	}
+
+	void HurtEffectControl() {
+
+		if (!isInitCountdown && isInHurt) {
+
+			spriteRenderer.color = hurtColor;
+			nextNormalSelf = Time.time + normalSelfDelay;
+			isInitCountdown = true;
+			
+		}
+		else {
+
+			if (Time.time > nextNormalSelf) {
+
+				spriteRenderer.color = Color.white;
+				isInHurt = false;
+				isInitCountdown = false;
+
+			}
+
+		}
+
+	}
+
+	void SetEnableCollider2D(GameObject item, bool value) {
+		
+		var cols = item.gameObject.GetComponents<Collider2D>();
+		
+		for (int i = 0; i < cols.Length; i++) {
+		
+			cols[i].enabled = value;
+		
+		}
+
+	}
+
 }

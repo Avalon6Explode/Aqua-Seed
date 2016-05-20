@@ -49,6 +49,7 @@ public class Enemy : MonoBehaviour {
 
 	}
 
+
 	void Start() {
 
 		uiDamageControl = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().DamageUI.transform.Find("UIReceiveDamageController").gameObject.GetComponent<UIReceiveDamageController>();
@@ -85,6 +86,12 @@ public class Enemy : MonoBehaviour {
 			spriteRenderer.color = Color.white;
 		
 		}
+
+	}
+
+	void OnDisable() {
+
+		health.FullRestore();
 
 	}
 

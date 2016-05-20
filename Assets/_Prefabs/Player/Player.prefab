@@ -517,6 +517,8 @@ MonoBehaviour:
   weaponInventory: {fileID: 11457372}
   weaponTransformRight: {fileID: 410160}
   weaponTransformLeft: {fileID: 432172}
+  normalSelfDelay: 0.2
+  hurtColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &11433376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -544,7 +546,7 @@ MonoBehaviour:
   soundVolume: 0.3
   startDelay: 0
   sounds:
-  - {fileID: 8300000, guid: a773b9e428863164e91c1b2cc3fec68d, type: 3}
+  - {fileID: 8300000, guid: c694e78b3229ced48a73253eb8d63a4f, type: 3}
   isPlayOnAwake: 0
   isLoopSound: 0
 --- !u!114 &11452154
@@ -606,7 +608,7 @@ MonoBehaviour:
   soundVolume: 0.3
   startDelay: 0
   sounds:
-  - {fileID: 8300000, guid: a773b9e428863164e91c1b2cc3fec68d, type: 3}
+  - {fileID: 8300000, guid: c694e78b3229ced48a73253eb8d63a4f, type: 3}
   isPlayOnAwake: 0
   isLoopSound: 0
 --- !u!114 &11480082
@@ -655,7 +657,7 @@ MonoBehaviour:
   soundVolume: 0.3
   startDelay: 0
   sounds:
-  - {fileID: 8300000, guid: a773b9e428863164e91c1b2cc3fec68d, type: 3}
+  - {fileID: 8300000, guid: d409ffa66135d4b488801aaaa23a574a, type: 3}
   isPlayOnAwake: 0
   isLoopSound: 0
 --- !u!124 &12463160

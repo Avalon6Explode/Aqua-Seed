@@ -263,7 +263,8 @@ public class AIAgressiveState : AIState {
 			regenHealth.Remove(enemy.AttackPoint);
 			regenHealth.ReInitRegen();
 
-			print("enemy attacked.");
+			var playerController = obj.GetComponent<PlayerController>();			
+			playerController.SetInHurt(true);
 
 		}
 

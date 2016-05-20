@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/@Scenes/CoreGame(Testing).unity
+    path: Assets/@Scenes/Level1_(endless).unity
   - enabled: 0
     path: Assets/@Scenes/Intro/TeamLogo.unity
   - enabled: 0
