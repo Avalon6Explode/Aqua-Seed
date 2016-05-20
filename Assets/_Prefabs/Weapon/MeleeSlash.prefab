@@ -107,7 +107,7 @@ MonoBehaviour:
   weaponType: 0
   weaponClassify: 0
   moveSpeed: 120
-  maxMagnitude: 0.5
+  maxMagnitude: 1
 --- !u!212 &21271006
 SpriteRenderer:
   m_ObjectHideFlags: 1

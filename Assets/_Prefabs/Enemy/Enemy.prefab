@@ -248,7 +248,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 187016}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6a5017795f72c7b41b3b6208987a5601, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0.019644499, y: -0.057984352}
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa14583f0d8303459f8fc06afa0a895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPoint: 10
+  attackPoint: 5
   hurtColor: {r: 1, g: 0.1764706, b: 0.1764706, a: 1}
 --- !u!114 &11449834
 MonoBehaviour:

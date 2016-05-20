@@ -162,6 +162,36 @@ public class AIAgressiveState : AIState {
 					rigid.AddForce(Vector3.left * moveSpeed, ForceMode2D.Force);
 
 				}
+
+				if (hitRight && !hitUp && player.transform.position.y >= transform.position.y) {
+
+					rigid.AddForce(Vector3.left * moveSpeed * 2.0f, ForceMode2D.Force);
+					rigid.AddForce(Vector3.up * moveSpeed * 2.0f, ForceMode2D.Force);
+
+				}
+
+				if (hitRight && !hitDown && player.transform.position.y <= transform.position.y) {
+
+					rigid.AddForce(Vector3.left * moveSpeed * 2.0f, ForceMode2D.Force);
+					rigid.AddForce(Vector3.down * moveSpeed * 2.0f, ForceMode2D.Force);
+
+				}
+
+
+				if (hitLeft && !hitUp && player.transform.position.y <= transform.position.y) {
+
+					rigid.AddForce(Vector3.right * moveSpeed * 2.0f, ForceMode2D.Force);
+					rigid.AddForce(Vector3.up * moveSpeed * 2.0f, ForceMode2D.Force);
+
+				}
+
+				if (hitLeft && !hitDown && player.transform.position.y >= transform.position.y) {
+
+					rigid.AddForce(Vector3.right * moveSpeed * 2.0f, ForceMode2D.Force);
+					rigid.AddForce(Vector3.down * moveSpeed * 2.0f, ForceMode2D.Force);
+
+				}
+
 			
 			}
 
