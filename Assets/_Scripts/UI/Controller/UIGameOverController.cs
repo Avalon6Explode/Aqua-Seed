@@ -1,9 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class UIGameOverController : MonoBehaviour {
 
+	[SerializeField]
+	Text txtTitle;
+
+
 	Canvas ui;
 	Health playerHealth;
+
+	bool isShow;
+	bool enableSwith;
 
 
 	void Initialize() {
@@ -22,11 +30,27 @@ public class UIGameOverController : MonoBehaviour {
 
 	void Update() {
 
-		if (playerHealth && playerHealth.Current <= 0) {
+		enableSwith = Input.GetKeyDown(KeyCode.Escape);
 
-			SetEnableUI(true);
+		if (playerHealth.Current <= 0) {
+
+				txtTitle.text = "GameOver";
+				isShow = true;
 
 		}
+		else {
+			
+			if (enableSwith) {
+
+				isShow = !isShow;
+
+			}
+
+			txtTitle.text = "Aqua Seed";
+
+		}
+
+		SetEnableUI(isShow);
 
 	}
 
