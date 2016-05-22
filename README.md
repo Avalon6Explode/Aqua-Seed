@@ -15,7 +15,7 @@
 - [Nuttapol Chasakulpanyo](https://www.facebook.com/natthapol.chasakulpanyo)
 
 #Official Jam Site
-[Adventure Jam 2016](https://jams.gamejolt.io/adventurejam2016)
+[Adventure Jam 2016](http://jams.gamejolt.io/adventurejam2016)
 
 #Licenses
 
