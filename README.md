@@ -1,9 +1,6 @@
 # Aqua-Seed
 The adventure game that participate the Adventure Jam 2016 #AdvJam2016 (Avalon Team)
 
-# Game Site
-- https://www.facebook.com/Aqua-Seed-1297979523562750
-
 # Team Member
 1) Chatchai Saratakij
 (https://www.facebook.com/CSaratakij)
