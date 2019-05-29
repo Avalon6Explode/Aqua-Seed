@@ -11,10 +11,8 @@ finish as much as we can and upload before the deadline of adventure jam 2016.
 This game use a pixel art style and sci-fi theme.
 
 <p float="left">
-    &ensp;
-    <img src="https://github.com/Sahapat/Aqua-Seed/blob/master/Sceenshots/Game.PNG" width="420" height="746"/>
-    &emsp;
-    <img src="https://github.com/Sahapat/Aqua-Seed/blob/master/Sceenshots/GamePlay.gif" width="420" height="746"/>/>
+    <img src="https://github.com/Sahapat/Aqua-Seed/blob/master/Sceenshots/Game.PNG" width="410">
+    <img src="https://github.com/Sahapat/Aqua-Seed/blob/master/Sceenshots/GamePlay.gif" width="410">
 </p>
 
 ## What we learn from this project?
