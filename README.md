@@ -1,27 +1,35 @@
 # Aqua-Seed
 ####The adventure game that participate the Adventure Jam 2016 #AdvJam2016 (Avalon Team)
 
-#Game Site
-- [Game Jolt](http://gamejolt.com/games/aqua-seed/146308#)
-- [Facebook](https://www.facebook.com/Aqua-Seed-1297979523562750)
+# What did we do?
+At the time, this the fist game for my team. we was thinking about 2D game and action. Then we have no experince in game development. 
+The action genre has many a particulars. When the deadline has come, the game didn't finish as we hope but the show must go on we try to 
+finish as much as we can and upload before the deadline of adventure jam 2016.
 
-#Team Member
-- [Chatchai Saratakij](https://www.facebook.com/chatchai.saratakij)
-- [Sahaphat Tong-on](https://www.facebook.com/sahapat.tongon)
-- [Kolchawal Woraput](https://www.facebook.com/kol.wor)
-- [Viratcha Siripornpermsak](https://www.facebook.com/profile.php?id=100000395168762)
-- [Chanatip Aramdilokrat](https://www.facebook.com/Aramdilokrat2)
-- [Worawat Poojeevorn](https://www.facebook.com/profile.php?id=100005225716968&fref=ts)
-- [Nuttapol Chasakulpanyo](https://www.facebook.com/natthapol.chasakulpanyo)
+## How the game look like?
 
-#Official Jam Site
-[Adventure Jam 2016](http://jams.gamejolt.io/adventurejam2016)
+This game use a pixel art style and sci-fi theme.
+<br>
+<br>
+<img src="https://github.com/Sahapat/Aqua-Seed/blob/master/Sceenshots/Game.PNG">
 
-#Licenses
+## What we learn from this project?
 
-- Aqua Seed's source code is released under the terms of the MIT License.(Please refer to the [LICENSE file](LICENSE.md))
-- [Images](Assets/Sprites/ActualAssets), [Sound(In the Theme folder)](Assets/Sounds/ActualAssets/Theme) are Copyright.
+We have learn how to deal with 2D sprite and implement into a game, learn about the brain storm, and pipeline of the game development.
+<br>
+<br>
+<img src="https://github.com/Sahapat/Aqua-Seed/blob/master/Sceenshots/GamePlay.gif">
 
-#3rd Party assets that make this game happen
-####Thank you.
-- Sci-Fi Sfx :heart: : [Get it now](https://www.assetstore.unity3d.com/en/#!/content/32830)
+# Team Member
+1) Chatchai Saratakij
+(https://www.facebook.com/CSaratakij)
+
+2) Sahaphat Tong-on
+(https://www.facebook.com/sahapat.tongon)
+
+3) Chanatip Aramdilokrat
+(https://www.facebook.com/Aramdilokrat2)
+
+# Links
+- [Official Adventure Jam 2016 site](http://jams.gamejolt.io/adventurejam2016)
+- [Executable file](https://drive.google.com/drive/folders/1JHUKiDS7f-Lakhf572_-x00VMxz1rbnK?usp=sharing)
