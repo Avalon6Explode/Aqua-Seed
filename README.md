@@ -30,5 +30,6 @@ We have learn how to deal with 2D sprite and implement into a game, learn about 
 3) Chanatip Aramdilokrat
 (https://www.facebook.com/Aramdilokrat2)
 
-# Official Jam Site
-http://jams.gamejolt.io/adventurejam2016
+# Links
+- [The Official Adventure Jam 2016 site](http://jams.gamejolt.io/adventurejam2016)
+- [The executable file](https://github.com/Sahapat/Aqua-Seed/tree/master/Build)
