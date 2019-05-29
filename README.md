@@ -32,4 +32,4 @@ We have learn how to deal with 2D sprite and implement into a game, learn about 
 
 # Links
 - [Official Adventure Jam 2016 site](http://jams.gamejolt.io/adventurejam2016)
-- [Executable file](https://github.com/Sahapat/Aqua-Seed/tree/master/Build)
+- [Executable file](https://drive.google.com/drive/folders/1JHUKiDS7f-Lakhf572_-x00VMxz1rbnK?usp=sharing)
