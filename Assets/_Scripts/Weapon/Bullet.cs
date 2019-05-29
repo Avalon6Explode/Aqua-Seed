@@ -6,12 +6,16 @@ public class Bullet : Weapon {
 	float moveSpeed;
 
 
-	Rigidbody2D rigid;
-	Vector2 direction;
+	protected Vector2 direction;
+	protected float angle;
 	
+	Rigidbody2D rigid;
+	Vector3 toPos;
 
-	public Bullet() {
+
+	public Bullet() : base() {
 		direction = Vector2.zero;
+		angle = 0.0f;
 	}
 
 	void Awake() {
@@ -22,8 +26,19 @@ public class Bullet : Weapon {
 		Use();
 	}
 
+	void OnEnable() {
+		toPos = direction;
+		angle = Mathf.Atan2(toPos.y, toPos.x) * Mathf.Rad2Deg;
+		angle -= 90;
+		transform.rotation = Quaternion.Euler(0.0f, 0.0f, angle);
+	}
+
+	void OnDisable() {
+		transform.rotation = Quaternion.identity;
+	}
+
 	void OnTriggerEnter2D(Collider2D col) {
-		if (col.gameObject.tag != "Player") {
+		if (col.gameObject.tag != "Weapon" && col.gameObject.tag != "Player") {
 			gameObject.SetActive(false);
 		}
 	}

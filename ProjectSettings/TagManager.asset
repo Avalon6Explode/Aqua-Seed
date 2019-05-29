@@ -9,6 +9,16 @@ TagManager:
   - Enemy
   - Suit
   - Item
+  - Weapon
+  - SceneManager
+  - PlayerUI
+  - DamageUI
+  - MeleeSlash
+  - BulletBeam
+  - Wall
+  - SceneAudioPlayer
+  - GameOverUI
+  - Spawner
   layers:
   - Default
   - TransparentFX
@@ -22,9 +32,9 @@ TagManager:
   - Bullet
   - Enemy
   - BG
-  - 
-  - 
-  - 
+  - Weapon
+  - EnemySortingLayerSensor
+  - EnemyEyesSensor
   - 
   - 
   - 
@@ -46,15 +56,36 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Wall
+    uniqueID: 1872800195
+    locked: 0
+  - name: ItemSuit
+    uniqueID: 428748843
+    locked: 0
   - name: Humaniod
     uniqueID: 3578685947
     locked: 0
   - name: Item
     uniqueID: 3528230943
     locked: 0
+  - name: Bullet
+    uniqueID: 2368164929
+    locked: 0
+  - name: MeleeSlash
+    uniqueID: 1301678511
+    locked: 0
+  - name: Gun
+    uniqueID: 4034574479
+    locked: 0
+  - name: BulletBeam
+    uniqueID: 2197168273
+    locked: 0
+  - name: WallUp
+    uniqueID: 139228285
+    locked: 0
   - name: Top
     uniqueID: 2408524789
     locked: 0
-  - name: Bullet
-    uniqueID: 2368164929
+  - name: SpriteUI
+    uniqueID: 343848209
     locked: 0

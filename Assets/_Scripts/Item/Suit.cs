@@ -1,15 +1,12 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class Suit : MonoBehaviour {
+public class Suit : Item {
 
-	// Use this for initialization
-	void Start () {
-	
+	public Suit() {
+		itemName = "Suit";
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public override void Use() {
+		return;
 	}
 }

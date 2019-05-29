@@ -5,7 +5,6 @@ public class Dash : Skill {
 	[SerializeField]
 	float dashSpeed;
 
-
 	float inputX;
 	float inputY;
 	float nextDash;
@@ -24,7 +23,7 @@ public class Dash : Skill {
 
 	public Dash() : base() {
 		cooldownRate = 0.8f;
-		staminaCost = 10;
+		energyCost = 8;
 		dashSpeed = 20.0f;
 		nextDash = 0.0f;
 		isInitDash = false;

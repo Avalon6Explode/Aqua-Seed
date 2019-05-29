@@ -1,5 +1,5 @@
 # Aqua-Seed
-The adventure game that participate the Adventure Jam 2016 #AdvJam2016 (Avalon Team)
+####The adventure game that participate the Adventure Jam 2016 #AdvJam2016 (Avalon Team)
 
 # What did we do?
 At the time, this the fist game for my team. we was thinking about 2D game and action. Then we have no experince in game development. 

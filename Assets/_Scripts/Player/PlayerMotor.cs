@@ -10,10 +10,13 @@ public class PlayerMotor : MonoBehaviour {
 	float inputX;
 	float inputY;
 
+	float currentSpeed;
+
 	Vector2 moveVector;
 	Rigidbody2D rigid;
 	
 	RegenHealth health;
+	RegenStamina stamina;
 
 
 	public PlayerMotor() {
@@ -23,20 +26,29 @@ public class PlayerMotor : MonoBehaviour {
 	void Awake() {
 		rigid = GetComponent<Rigidbody2D>();
 		health = GetComponent<RegenHealth>();
+		stamina = GetComponent<RegenStamina>();
 	}
 
 	void Update() {
 		inputX = Input.GetAxisRaw("Horizontal");
 		inputY = Input.GetAxisRaw("Vertical");
+
+		if (stamina.Current < 30) {
+			currentSpeed = moveSpeed * 0.5f;
+		} 
+		else {
+			currentSpeed = moveSpeed;
+		}
 		
-		moveVector = new Vector2(inputX, inputY) * moveSpeed;
-		moveVector = (moveVector.magnitude > 1) ? new Vector2(moveVector.normalized.x, moveVector.normalized.y) * moveSpeed : moveVector;
+		moveVector = new Vector2(inputX, inputY) * currentSpeed;
+		moveVector = (moveVector.magnitude > 1) ? new Vector2(moveVector.normalized.x, moveVector.normalized.y) * currentSpeed : moveVector;
 	}
 
 	void FixedUpdate() {
 		if (health.Current <= 0) {
 			rigid.velocity = Vector2.zero;
-		} else {
+		}
+		else {
 			rigid.AddForce(moveVector, ForceMode2D.Impulse);
 		}
 	}
