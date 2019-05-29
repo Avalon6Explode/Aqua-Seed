@@ -9,15 +9,12 @@ finish as much as we can and upload before the deadline of adventure jam 2016.
 ## How the game look like?
 
 This game use a pixel art style and sci-fi theme.
-
-<p float="left">
-    <img src="https://github.com/Sahapat/Aqua-Seed/blob/master/Sceenshots/Game.PNG" width="410">
-    <img src="https://github.com/Sahapat/Aqua-Seed/blob/master/Sceenshots/GamePlay.gif" width="410">
-</p>
+<img src="https://github.com/Sahapat/Aqua-Seed/blob/master/Sceenshots/Game.PNG">
 
 ## What we learn from this project?
 
 We have learn how to deal with 2D sprite and implement into a game, learn about the brain storm, and pipeline of the game development.
+<img src="https://github.com/Sahapat/Aqua-Seed/blob/master/Sceenshots/GamePlay.gif">
 
 # Team Member
 1) Chatchai Saratakij
